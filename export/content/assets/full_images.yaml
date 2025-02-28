@@ -1,0 +1,14 @@
+title: 'Full Images'
+disk: full-image
+allow_uploads: true
+create_folders: true
+warm_presets:
+  - full-image-xs-webp
+  - full-image-sm-webp
+  - full-image-md-webp
+  - full-image-lg-webp
+  - full-image-xl-webp
+  - full-image-2xl-webp
+  - full-image-3xl-webp
+  - full-image-4xl-webp
+  - full-image-4k-webp

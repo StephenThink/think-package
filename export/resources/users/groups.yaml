@@ -1,0 +1,8 @@
+editor:
+  title: Editor
+  roles:
+    - editors
+client_admin:
+  title: 'Client Admin'
+  roles:
+    - client_admin

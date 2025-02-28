@@ -1,0 +1,506 @@
+@import 'tailwindcss';
+
+@import "@markusantonwolf/ta-analytics/src/styles/styles.css";
+@import 'barbajs.css';
+@import 'fieldsets/gallery.css';
+@import 'fieldsets/columns.css';
+@import 'fieldsets/sections.css';
+@import 'fieldsets/bento.css';
+@import 'training.css';
+
+
+/* This is all you. */
+
+@plugin '@tailwindcss/typography';
+
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+/*@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));*/
+
+@theme {
+    /* Breakpoints */
+    --breakpoint-phone: 24rem;
+    --breakpoint-tablet: 40rem;
+    --breakpoint-laptop: 64rem;
+    --breakpoint-desktop: 80rem;
+    --breakpoint-3xl: 120rem;
+    --breakpoint-4k: 160rem;
+    /* Color */
+    --color-think-yellow: #FFC734;
+    --color-think-dark: #2C2F33;
+    --color-primary: #FFC734;
+    --color-secondary: var(--color-think-dark);
+    --color-primary-dark: #bada55;
+    --color-secondary-dark: #373737;
+    --color-body-background: #ffffff;
+    --color-body-text: #000000;
+
+    /* Nav Bar */
+    --color-navbar-background: #ffffff;
+    --color-navbar-background-dark: #000000;
+
+    /* Nav Links */
+    --color-nav-link-text: #000000;
+    --color-nav-link-text-dark: var(--color-primary-dark);
+    --color-nav-link-text-hover: var(--color-primary);
+    --color-nav-link-text-hover-dark: var(--color-secondary-dark);
+    --color-nav-link-background: var(--color-navbar-background);
+    --color-nav-link-background-dark: var(--color-navbar-background-dark);
+    --color-nav-link-background-hover: #fafafa;
+    --color-nav-link-background-hover-dark: #fafafa;
+
+    /* Search Magnifying Glass */
+    --color-magnifying-glass: #000000;
+    --color-magnifying-glass-dark: #fafafa;
+    --color-magnifying-glass-hover: #fafafa;
+    --color-magnifying-glass-hover-dark: #fafafa;
+
+    /* Full Screen Hero */
+    --color-button-active: #a39365;
+    --color-button-inactive: #c8e6fa;
+    --color-slide-background: #fafafa;
+
+    /* Search Bar */
+    --color-search-background: var(--color-gray-300);
+    --color-search-background-dark: var(--color-gray-800);
+    --color-search-button: var(--color-gray-400);
+    --color-search-text: var(--color-gray-800);
+    --color-search-text-dark: var(--color-gray-300);
+    --color-search-placeholder: var(--color-gray-600);
+    --color-search-placeholder-dark: var(--color-gray-200);
+
+    /* Back Up Button */
+    --color-up-background: var(--color-gray-300);
+    --color-up-background-dark: var(--color-gray-800);
+    --color-up-text: var(--color-gray-800);
+    --color-up-text-dark: var(--color-gray-300);
+
+    /* Theme Buttons */
+    --color-theme-text: var(--color-up-text);
+    --color-theme-text-dark: var(--color-up-text-dark);
+    --color-theme-background: var(--color-up-background);
+    --color-theme-background-dark: var(--color-up-background-dark);
+    --color-theme-text-hover: var(--color-up-text-dark);
+    --color-theme-text-dark-hover: var(--color-up-text);
+    --color-theme-background-hover: var(--color-up-background-dark);
+    --color-theme-background-dark-hover: var(--color-up-background);
+    --color-theme-border: var(--color-up-background);
+    --color-theme-border-active: var(--color-theme-text);
+    --color-theme-border-active-dark: var(--color-theme-text-dark);
+
+    /* Buttons */
+    --color-button-background: var(--color-primary);
+    --color-button-background-dark: var(--color-secondary);
+    --color-button-text: var(--color-secondary);
+    --color-button-text-dark: var(--color-primary);
+
+
+    /* Reports */
+    --color-report-divide: var(--color-primary);
+    --color-report-divide-dark: var(--color-primary-dark);
+    --color-report-table-bg: var(--color-gray-100);
+    --color-report-table-bg-dark: var(--color-gray-800);;
+    --color-report-table-text: var(--color-gray-800);
+    --color-report-table-text-dark: var(--color-gray-100);
+    --color-report-table-bg-hover: var(--color-indigo-200);
+    --color-report-table-bg-hover-dark: var(--color-indigo-800);
+    --color-report-table-text-hover: var(--color-indigo-800);
+    --color-report-table-text-hover-dark: var(--color-indigo-200);
+
+    /* Progress Bar */
+    --color-progress: var(--color-primary);
+    --color-progress-dark: var(--color-primary-dark);
+
+
+    --font-poppins: "Poppins", "sans-serif";
+
+    /* Font-Size */
+    --text-tiny: 0.625rem;
+
+
+    /* Tracking */
+    --tracking-tightest: -0.075em;
+
+    --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+    /* Padding, Margin, Width, Min-Width, Max-Width, Height, Min-Height, Max-Height, Leading */
+    --spacing-button-mobile: 1.5rem;
+    --spacing-button-desktop: 1rem;
+    --spacing-button-max: 2.5rem;
+    --spacing-news-card-with-image: 300px;
+    --spacing-news-card-without-image: 250px;
+    --spacing-team-mugshot: 120px;
+
+    --spacing-quarter-screen: 25dvh;
+    --spacing-half-screen: 50dvh;
+    --spacing-three-quarter-screen: 75dvh;
+
+    --spacing-section-bottom: 4rem;
+    --spacing-column-gap: 2rem;
+    --spacing-last-p: var(--spacing-column-gap);
+
+    /* Columns */
+    /* List Icons */
+    --spacing-list-icon: 2rem;
+    --spacing-list-content: 90%;
+
+    /* Not 100% sure of this one. */
+    --z-index-cover-page: 1000;
+    --z-index-main-nav: 100;
+    --z-index-mobile-nav: 99;
+
+    /* Grid */
+    --row-14: repeat(14, minmax(0, 1fr));
+    --row-16: repeat(16, minmax(0, 1fr));
+    --row-18: repeat(18, minmax(0, 1fr));
+    --row-19: repeat(19, minmax(0, 1fr));
+
+
+    /* Animations */
+    --animate-back-to-top: backToTop 1s ease-in-out infinite;
+
+    @keyframes backToTop {
+        0%, 100% {
+            transform: translateY(-3px);
+        }
+        50% {
+            transform: translateY(3px);
+        }
+    }
+
+    /* Used in the Vertical Scroller */
+    --animate-move-in: moveIn 1s ease-in-out forwards;
+    @keyframes moveIn {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    --animate-move-out: moveOut 1s ease-in-out forwards;
+    @keyframes moveOut {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+
+    --animate-move-in-from-right: moveInFromRight 1s ease-in-out forwards;
+    @keyframes moveInFromRight {
+        0% {
+            transform: translateX(100%) rotateY(-120deg);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0) rotateY(0);
+            opacity: 1;
+        }
+    }
+
+    --animate-move-out-to-left: moveOutToLeft 1s ease-in-out forwards;
+    @keyframes moveOutToLeft {
+        0% {
+            transform: translateX(0) rotateY();
+            opacity: 1;
+        }
+        100% {
+            transform: translateX(-100%) rotateY(120deg);
+            opacity: 0;
+        }
+    }
+}
+
+@utility container {
+    margin-inline: auto;
+    /*padding-inline: 2rem;*/
+}
+
+@utility debug-screens {
+    &::before {
+        position: fixed;
+        z-index: 2147483647;
+        left: 0;
+        bottom: 0;
+        padding: .3333333em .5em;
+        font-size: 12px;
+        line-height: 1;
+        background-color: #000;
+        color: #fff;
+        box-shadow: 0 0 0 1px #fff;
+        display: block;
+        border-radius: 0 10px 0 0;
+
+        @variant sm {
+            content: "screen: sm/tablet";
+        }
+
+        @variant md {
+            content: "screen: md";
+        }
+
+        @variant lg {
+            content: "screen: lg/laptop";
+        }
+
+        @variant xl {
+            content: "screen: xl/desktop";
+        }
+
+        @variant 2xl {
+            content: "screen: 2xl";
+        }
+
+        @variant 3xl {
+            content: "screen: 3xl";
+        }
+        @variant 4k {
+            content: "screen: 4k";
+        }
+    }
+}
+
+
+.default-text-colours {
+    @apply text-primary dark:text-primary-dark;
+}
+
+.default-bg-colours {
+    @apply bg-secondary dark:bg-secondary-dark;
+}
+
+.container-inner {
+    @apply w-full  mx-auto md:mx-0 px-4 md:px-0;
+}
+
+
+/* If needing to load custom fonts. */
+/*@font-face {*/
+/*    font-family: Oswald;*/
+/*    font-style: normal;*/
+/*    font-weight: 200 700;*/
+/*    font-display: swap;*/
+/*    src: url("/fonts/Oswald.woff2") format("woff2");*/
+/*}*/
+
+/* Sections */
+section,
+#fullWidthVideo {
+    &.padding-top-none {
+        @apply pt-0;
+    }
+
+    &.padding-top-small {
+        @apply pt-12;
+    }
+
+    &.padding-top-medium {
+        @apply pt-20;
+    }
+
+    &.padding-top-large {
+        @apply pt-36;
+    }
+
+    &.padding-top-xlarge {
+        @apply pt-48;
+    }
+
+    &.padding-bottom-none {
+        @apply pb-0;
+    }
+
+    &.padding-bottom-small {
+        @apply pb-12;
+    }
+
+    &.padding-bottom-medium {
+        @apply pb-20;
+    }
+
+    &.padding-bottom-large {
+        @apply pb-36;
+    }
+
+    &.padding-bottom-xlarge {
+        @apply pb-48;
+    }
+}
+
+/* Hero Image */
+
+.reveal-hero-image {
+    visibility: hidden;
+    position: absolute;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+/* Body Text */
+
+#bodyContent,
+#fullWidthBox,
+#columnText,
+#ctaContent,
+#collectionContent,
+#listText,
+#formContent,
+#informationBlockInnerText,
+.scroller__inner,
+.popContent {
+    @apply max-w-none
+    prose lg:prose-lg
+    prose-h2:mt-2
+    prose-li:my-2
+    prose-p:my-2;
+}
+
+
+#bodyContent p:last-of-type,
+    /*#fullWidthBox p:last-of-type,*/
+    /*#columnText p:last-of-type,*/
+    /*#ctaContent p:last-of-type,*/
+#collectionContent p:last-of-type,
+#listText p:last-of-type,
+#informationBlockInnerText p:last-of-type {
+    padding-bottom: var(--spacing-last-p);
+}
+
+
+/* Buttons */
+
+a[role="button"], button[type="submit"] {
+    @apply sm:min-w-[50%] transition-transform rounded px-4 py-2 text-center text-lg font-bold uppercase shadow outline-none !no-underline transition-colors duration-300 ease-in-out lg:min-w-[10rem]  hover:shadow-inner focus:outline-none;
+
+    &.button-primary {
+        @apply bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-300 active:bg-gray-100 hover:shadow-gray-900;
+    }
+
+    &.button-secondary {
+        @apply bg-gray-300 text-gray-900 hover:text-gray-300 hover:bg-gray-400 active:bg-gray-100 hover:shadow-gray-300;
+    }
+
+    &.button-tertiary {
+        @apply bg-white text-gray-900 active:bg-gray-100 border-2 border-gray-900 hover:shadow-gray-900;
+    }
+}
+
+.vs-button {
+    @apply bg-button-background text-button-text dark:bg-button-background-dark dark:text-button-text-dark py-1 px-2 rounded-2xl
+}
+
+
+/*This is the main links on the main top navbar*/
+@utility navbar-link {
+    @apply text-nav-link-text dark:text-nav-link-text-dark hover:text-nav-link-text-hover dark:hover:text-nav-link-text-hover-dark group-hover:text-nav-link-text-hover dark:group-hover:text-nav-link-text-hover-dark text-base uppercase font-bold transition-colors duration-300 ease-in-out;
+}
+
+@utility navbar-bg {
+    @apply bg-nav-link-background dark:bg-nav-link-background-dark
+}
+
+
+@utility navbar-dropdown-menu {
+    @apply absolute -left-2 top-0 mt-10 bg-transparent text-nav-link-text dark:text-nav-link-text-dark shadow-md min-w-[150px] whitespace-nowrap rounded-b-2xl overflow-hidden;
+
+}
+
+@utility navbar-mobile-link {
+    @apply text-nav-link-text dark:text-nav-link-text-dark uppercase px-3 py-2 font-bold text-xl
+}
+
+
+/* Heroes */
+#hero_heading {
+    @apply text-6xl font-semibold text-primary dark:text-primary-dark;
+}
+
+#hero_sub_heading {
+    @apply text-2xl text-gray-300;
+}
+
+
+@utility disable-scroll {
+    overflow: hidden;
+}
+
+
+/* Theme Buttons */
+@utility theme-button {
+    @apply size-10 lg:size-7
+    p-1
+    bg-theme-background hover:bg-theme-background-dark dark:bg-theme-background-dark dark:hover:bg-theme-background-dark-hover
+    text-theme-text dark:text-theme-text-dark
+    hover:text-theme-text-hover dark:hover:text-theme-text-dark-hover
+    transition
+    rounded-full cursor-pointer
+}
+
+
+/* Reports */
+.reports {
+    & .badge {
+        @apply rounded-full px-2 py-1 text-sm leading-tight bg-green-300 text-green-600;
+    }
+
+
+    & .dropdown-button {
+        @apply block navbar-link navbar-bg px-4 py-4 w-full;
+    }
+
+    & .dropdown-menu {
+        @apply mt-2 navbar-bg navbar-link  absolute z-10 w-full shadow-lg left-0 top-10;
+    }
+
+    & .dropdown-item {
+        @apply text-gray-800 dark:text-gray-800 dark:bg-gray-200 bg-gray-200;
+    }
+
+    & .dropdown-item-selected {
+        @apply bg-nav-link-background-dark dark:bg-nav-link-background dark:text-nav-link-text text-nav-link-text-dark font-bold;
+    }
+
+    & .report-table-style {
+        @apply bg-report-table-bg dark:bg-report-table-bg-dark text-report-table-text dark:text-report-table-text-dark
+    }
+
+
+    & .report-table-style-cell {
+        @apply hover:bg-report-table-bg-hover hover:text-report-table-text-hover dark:hover:bg-report-table-bg-hover-dark dark:hover:text-report-table-text-hover-dark
+        border-report-divide dark:border-report-divide-dark  border-b-4
+
+    }
+
+    :is(h3) {
+        @apply border-b-4 border-report-divide dark:border-report-divide-dark
+    }
+}
+
+
+

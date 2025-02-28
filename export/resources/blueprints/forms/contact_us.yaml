@@ -1,0 +1,44 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              placeholder: 'Name ...'
+              display: Name
+              type: text
+              always_save: false
+              validate:
+                - required
+          -
+            handle: e-mail
+            field:
+              placeholder: 'E-mail ...'
+              input_type: email
+              display: E-mail
+              type: text
+              always_save: false
+              validate:
+                - required
+          -
+            handle: telephone
+            field:
+              input_type: tel
+              character_limit: 11
+              type: text
+              display: Telephone
+              placeholder: '07*** ******'
+              validate:
+                - required
+          -
+            handle: message
+            field:
+              placeholder: 'What would you like to ask us?'
+              display: Message
+              type: textarea
+              always_save: false
+              validate:
+                - required

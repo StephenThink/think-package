@@ -1,0 +1,80 @@
+{{ site_admin }}
+{{ google_analytics }}
+{{ if environment == 'local' }}
+    {{ $googleId = local }}
+{{  elseif environment == 'staging' }}
+    {{ $googleId = staging }}
+{{  elseif environment == 'production' }}
+    {{ $googleId = production }}
+{{  /if }}
+{{ /google_analytics }}
+
+{{  if show_cookie_dialog }}
+<div
+
+    x-data="taAnalytics()"
+    x-init="init()"
+    data-delay="5000"
+    data-store="local"
+    data-test="{{test_mode}}"
+    data-id="{{googleId}}"
+    x-cloak
+
+>
+    <div class="ta-analytics ta-analytics-anim-swipe p-2 fixed bottom-0 left-0 z-main-nav"
+    >
+    <div class="w-full  bg-white border-2 rounded-xl" x-show="show">
+        <div
+            class="w-full flex flex-col justify-center items-center bg-secondary-500 bg-gradient-to-t from-secondary-600 to-secondary-400 text-black font-normal leading-snug rounded-md shadow-lg px-8 py-4"
+            x-show="dialog"
+            x-ref="question"
+        >
+            <div class="w-full sm:w-3/4 text-center sm:text-left">
+                We use cookies to measure the range of this website so we can easily see how many visitors are on our pages. This helps us a lot to further improve our services and adapt it more to your needs.
+            </div>
+            <div class="flex justify-between items-center w-full sm:w-3/4  m-2">
+                <button
+                    type="button"
+                    class="font-semibold leading-none text-primary m-2 p-2"
+                    @click="decline()"
+                >
+                    {{cookie_reject_button_text}}
+                </button>
+                <button
+                    type="button"
+                    class="font-bold text-xl rounded-xl leading-none text-white bg-primary bg-gradient-to-t from-primary-600 to-primary-400 border-2 border-primary shadow-lg text-md m-2 px-6 py-3 transition transform duration-300 ease-in-out hover:scale-110"
+                    @click="accept()"
+                >
+                    {{cookie_accept_button_text}}
+                </button>
+            </div>
+        </div>
+        <div
+            class="w-full flex justify-center items-center bg-primary bg-gradient-to-t from-secondary-600 to-secondary-400 text-white font-normal leading-snug rounded-md shadow-lg px-8 py-4"
+            x-show="!dialog && confirmed"
+            x-ref="confirmed"
+        >
+            <div class="text-2xl text-center font-normal leading-snug">
+                {{ cookie_accept_message }}
+            </div>
+        </div>
+        <div class="w-full flex justify-center items-center bg-primary bg-gradient-to-t from-secondary-600 to-secondary-400 text-white font-normal leading-snug rounded-md shadow-lg px-8 py-4"
+             x-show="!dialog && !confirmed"
+             x-ref="declined"
+        >
+            <div class="text-2xl text-center font-normal leading-snug">
+                {{ cookie_reject_message }}
+            </div>
+        </div>
+    </div>
+</div>
+
+    <button class="absolute bottom-0 left-0" id="cookieButton" @click="show=true; dialog=true;" >
+        {{ svg src="/think/site/icons/cookie-bite.svg" class="w-10 h-10 fill-gray-600" alt="Cookie Dialog Box"}}
+    </button>
+
+</div>
+
+
+{{ /if }}
+{{ /site_admin }}

@@ -1,0 +1,229 @@
+title: Column
+fields:
+  -
+    handle: column
+    field:
+      remove_empty_nodes: true
+      type: bard
+      display: Column
+      instructions: 'This covers when a column is used, you can insert different components into it.'
+      sets:
+        media:
+          display: Media
+          sets:
+            image_landscape:
+              display: 'Image Landscape'
+              instructions: 'This will show a landscape image with the option of adding text to below the image.'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  handle: landscape_image
+                  field:
+                    max_files: 1
+                    min_files: 1
+                    container: content_landscape_images
+                    folder: /
+                    type: assets
+                    instructions: 'This is the image that you are displaying to visitors.'
+                    display: Image
+                -
+                  handle: show_text
+                  field:
+                    inline_label_when_true: 'Please fill in the text below.'
+                    type: toggle
+                    display: 'Show Text'
+                    instructions: 'This is a way of showing a description underneath the image.'
+                -
+                  handle: image_text
+                  field:
+                    remove_empty_nodes: false
+                    type: bard
+                    display: 'Image Text'
+                    if:
+                      show_text: 'equals true'
+                    always_save: true
+                    instructions: 'This is will be displayed below the image.'
+            image_portrait:
+              display: 'Image Portrait'
+              instructions: 'This will show a portrait image.'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  handle: portrait_image
+                  field:
+                    max_files: 1
+                    min_files: 1
+                    container: content_portrait_images
+                    folder: /
+                    type: assets
+                    display: Image
+                    instructions: 'This is the image that you are displaying to visitors.'
+            video:
+              display: Video
+              instructions: 'This will show a video, with options for autoplaying etc.'
+              icon: media-webcam-video
+              fields:
+                -
+                  import: video
+        misc:
+          display: Misc
+          sets:
+            call_to_action:
+              display: 'Call to action'
+              instructions: 'This is the text that you want to display to the visitor.'
+              icon: alert-warning-exclamation-mark
+              fields:
+                -
+                  import: call_to_action
+            form:
+              display: Form
+              instructions: 'You can provide a form for visitors to fill in.'
+              icon: form-text-field
+              fields:
+                -
+                  import: form_set
+            item_list:
+              display: 'Item List'
+              instructions: 'You can have bulleted lists with icons'
+              icon: layout-table-row-insert
+              fields:
+                -
+                  handle: list_options
+                  field:
+                    input_label: 'Show Options'
+                    type: revealer
+                    display: 'List Options'
+                -
+                  handle: icon_alignment
+                  field:
+                    options:
+                      -
+                        key: items-start
+                        value: Top
+                      -
+                        key: items-center
+                        value: Center
+                      -
+                        key: items-end
+                        value: Bottom
+                    max_items: 1
+                    default: items-center
+                    type: select
+                    display: 'Icon Alignment'
+                    instructions: 'Where do you want the icon to appear in relation to the text?'
+                    if:
+                      list_options: 'equals true'
+                    always_save: true
+                -
+                  handle: bulleted_items
+                  field:
+                    type: replicator
+                    display: 'Bulleted Items'
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        sets:
+                          listed_item:
+                            display: 'Listed Item'
+                            fields:
+                              -
+                                handle: list_icon
+                                field:
+                                  type: icon
+                                  display: 'List Icon'
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                              -
+                                handle: list_text
+                                field:
+                                  buttons:
+                                    - bold
+                                    - italic
+                                    - removeformat
+                                    - anchor
+                                    - color
+                                  smart_typography: false
+                                  save_html: false
+                                  inline: false
+                                  toolbar_mode: fixed
+                                  reading_time: false
+                                  word_count: false
+                                  fullscreen: true
+                                  allow_source: true
+                                  enable_input_rules: true
+                                  enable_paste_rules: true
+                                  remove_empty_nodes: false
+                                  antlers: false
+                                  link_noopener: false
+                                  link_noreferrer: false
+                                  target_blank: false
+                                  always_show_set_button: false
+                                  collapse: false
+                                  previews: true
+                                  type: bard
+                                  display: 'List Text'
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+            quote:
+              display: Quote
+              instructions: 'You can add a Quote'
+              icon: text-formatting-quotation
+              fields:
+                -
+                  handle: quotation
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                    remove_empty_nodes: false
+                    type: bard
+                    display: Quotation
+                    instructions: 'What is your quote?'
+                -
+                  handle: quote_text_colour
+                  field:
+                    options:
+                      text-black: Black
+                      text-white: White
+                      text-gray-300: 'Light Grey'
+                      text-gray-600: 'Mid Grey'
+                      text-primary: Primary
+                      text-secondary: Secondary
+                      default-text-colours: Default
+                    max_items: 1
+                    default: default-text-colours
+                    type: select
+                    display: 'Quote Text Colour'
+                    width: 50
+                    instructions: 'What would you like the Quote text to be?'
+                -
+                  handle: quote_icon_colour
+                  field:
+                    options:
+                      text-black: Black
+                      text-white: White
+                      text-gray-300: 'Light Grey'
+                      text-gray-600: 'Mid Grey'
+                      text-primary: Primary
+                      text-secondary: Secondary
+                      default-text-colours: Default
+                    max_items: 1
+                    default: default-text-colours
+                    type: select
+                    display: 'Quote Icon Colour'
+                    width: 50
+                    instructions: 'What would you like the Quote icon to be?'

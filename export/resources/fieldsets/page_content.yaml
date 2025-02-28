@@ -1,0 +1,1279 @@
+title: 'Page Content'
+fields:
+  -
+    handle: page_content
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - color
+        - horizontalrule
+      reading_time: true
+      word_count: true
+      remove_empty_nodes: trim
+      collapse: accordion
+      type: bard
+      display: 'Page Content'
+      instructions: 'This is what populates the page, if you want to add predefined **sets** then click on the **Plus** to add them.'
+      sets:
+        page:
+          display: Page
+          icon: align-object-top
+          sets:
+            section:
+              display: Section
+              instructions: 'This will enable you to populate the page with different options.'
+              icon: layout-split-horizontal
+              fields:
+                -
+                  import: section_detail
+                -
+                  handle: section_content
+                  field:
+                    type: bard
+                    display: 'Section Content'
+                    remove_empty_nodes: false
+                    sets:
+                      block:
+                        display: Block
+                        sets:
+                          sub_heading:
+                            display: 'Sub Heading'
+                            instructions: 'Heading breaker down the page.'
+                            icon: text-formatting-image-top
+                            fields:
+                              -
+                                handle: sub_heading
+                                field:
+                                  buttons:
+                                    - h2
+                                    - h3
+                                    - bold
+                                    - italic
+                                    - removeformat
+                                    - anchor
+                                    - color
+                                    - unorderedlist
+                                    - orderedlist
+                                  remove_empty_nodes: trim
+                                  type: bard
+                                  display: 'Sub Heading'
+                          full_width_boxed_content:
+                            display: 'Full Width Boxed Content'
+                            instructions: 'This will represent a box for you to populate.'
+                            icon: arrows-fit-to-width
+                            fields:
+                              -
+                                handle: full_width_box_content
+                                field:
+                                  buttons:
+                                    - h2
+                                    - h3
+                                    - bold
+                                    - italic
+                                    - removeformat
+                                    - anchor
+                                    - color
+                                    - unorderedlist
+                                    - orderedlist
+                                    - h4
+                                    - h5
+                                    - h6
+                                  remove_empty_nodes: trim
+                                  type: bard
+                                  display: 'Full Width Box Content'
+                          form_request:
+                            display: 'Form Request'
+                            instructions: 'You can display a form.'
+                            icon: form-text-field
+                            fields:
+                              -
+                                import: form_set
+                          information_blocks:
+                            display: 'Information Blocks'
+                            instructions: 'This is a block that can hide and show information for various bits of information.  It can also be used to download pdfs and assets.'
+                            icon: media-news-paper
+                            fields:
+                              -
+                                handle: block
+                                field:
+                                  mode: stacked
+                                  min_rows: 2
+                                  add_row: 'Add Block'
+                                  type: grid
+                                  display: Block
+                                  fields:
+                                    -
+                                      handle: title
+                                      field:
+                                        type: text
+                                        display: Title
+                                    -
+                                      handle: inner_blocks
+                                      field:
+                                        type: grid
+                                        display: 'Inner Blocks'
+                                        mode: stacked
+                                        min_rows: 1
+                                        add_row: 'Add Inner Block'
+                                        fields:
+                                          -
+                                            handle: inner_text
+                                            field:
+                                              buttons:
+                                                - h2
+                                                - h3
+                                                - bold
+                                                - italic
+                                                - unorderedlist
+                                                - orderedlist
+                                                - removeformat
+                                                - quote
+                                                - anchor
+                                                - color
+                                              remove_empty_nodes: trim
+                                              type: bard
+                                              display: 'Inner Text'
+                                          -
+                                            handle: inner_asset
+                                            field:
+                                              max_files: 1
+                                              container: documents
+                                              folder: /
+                                              type: assets
+                                              display: 'Inner Asset'
+                                          -
+                                            handle: link_label
+                                            field:
+                                              default: 'Download PDF'
+                                              type: text
+                                              display: 'Link Label'
+                          vertical_scroller:
+                            display: 'Vertical Scroller'
+                            icon: layout-carousel-horizontal
+                            fields:
+                              -
+                                handle: vertical_heading
+                                field:
+                                  type: text
+                                  display: Heading
+                              -
+                                handle: vs_options
+                                field:
+                                  input_label: 'Show Options'
+                                  type: revealer
+                                  display: Options
+                              -
+                                handle: vs_scroll_speed
+                                field:
+                                  min: 1000
+                                  max: 10000
+                                  step: 500
+                                  default: 5000
+                                  type: range
+                                  display: 'Scroll Speed'
+                                  instructions: 'How fast will the Vertical Scroller scroll? Each 1000 is a second.'
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                                  width: 50
+                              -
+                                handle: vs_flip_images
+                                field:
+                                  options:
+                                    -
+                                      key: flipped
+                                      value: Flipped
+                                    -
+                                      key: left
+                                      value: 'Appear on Left'
+                                    -
+                                      key: right
+                                      value: 'Appear on Right'
+                                  default: left
+                                  type: select
+                                  display: 'Flip Images'
+                                  instructions: 'Do you want the Images to alternate from Left to Right, this would appear better on an even number of items.'
+                                  width: 50
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                              -
+                                handle: vs_text_alignment
+                                field:
+                                  options:
+                                    -
+                                      key: items-start
+                                      value: Left
+                                    -
+                                      key: items-center
+                                      value: Center
+                                    -
+                                      key: items-end
+                                      value: Right
+                                  default: items-start
+                                  type: select
+                                  display: 'Text Alignment'
+                                  width: 50
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                              -
+                                handle: vs_content_alignment
+                                field:
+                                  options:
+                                    -
+                                      key: justify-start
+                                      value: Top
+                                    -
+                                      key: justify-center
+                                      value: Center
+                                    -
+                                      key: justify-end
+                                      value: Bottom
+                                  default: justify-start
+                                  type: select
+                                  display: 'Content Alignment'
+                                  width: 50
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                              -
+                                handle: vs_animate_in
+                                field:
+                                  options:
+                                    -
+                                      key: animate-move-in
+                                      value: 'Bottom to Top'
+                                    -
+                                      key: animate-move-in-from-right
+                                      value: 'Right to Left'
+                                  default: animate-move-in
+                                  type: select
+                                  display: 'Animate In'
+                                  width: 50
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                              -
+                                handle: vs_animate_out
+                                field:
+                                  options:
+                                    -
+                                      key: animate-move-out
+                                      value: 'Bottom to Top'
+                                    -
+                                      key: animate-move-out-to-left
+                                      value: 'Right to Left'
+                                  default: animate-move-out
+                                  type: select
+                                  display: 'Animate Out'
+                                  width: 50
+                                  if:
+                                    vs_options: 'equals true'
+                                  always_save: true
+                              -
+                                handle: vertical_scroller
+                                field:
+                                  type: grid
+                                  display: 'Vertical Scroller'
+                                  mode: stacked
+                                  fields:
+                                    -
+                                      handle: title
+                                      field:
+                                        type: text
+                                        display: Title
+                                    -
+                                      handle: description
+                                      field:
+                                        buttons:
+                                          - bold
+                                          - italic
+                                          - unorderedlist
+                                          - orderedlist
+                                          - removeformat
+                                          - anchor
+                                        remove_empty_nodes: trim
+                                        type: bard
+                                        display: Description
+                                        character_limit: 700
+                                        word_count: true
+                                    -
+                                      handle: image
+                                      field:
+                                        max_files: 1
+                                        container: vertical_scroller
+                                        folder: /
+                                        type: assets
+                                        display: Image
+                                        mode: grid
+                          team_list:
+                            display: 'Team List'
+                            instructions: 'You can display the Team members.'
+                            icon: media-image-photo-focus-frame
+                            fields:
+                              -
+                                handle: team_title
+                                field:
+                                  type: text
+                                  display: 'Team Title'
+                              -
+                                handle: team_entries
+                                field:
+                                  max_items: 6
+                                  collections:
+                                    - team_members
+                                  type: entries
+                                  display: 'Team Entries'
+                              -
+                                handle: name_colour
+                                field:
+                                  options:
+                                    -
+                                      key: text-white
+                                      value: White
+                                    -
+                                      key: text-gray-500
+                                      value: 'Mid Grey'
+                                    -
+                                      key: text-black
+                                      value: Black
+                                    -
+                                      key: default-text-colours
+                                      value: Default
+                                  type: select
+                                  display: 'Name colour'
+                                  width: 50
+                                  max_items: 1
+                                  default: default-text-colours
+                              -
+                                handle: position_colour
+                                field:
+                                  options:
+                                    -
+                                      key: text-white
+                                      value: White
+                                    -
+                                      key: text-gray-500
+                                      value: 'Mid Grey'
+                                    -
+                                      key: text-gray-600
+                                      value: 'Dark Grey'
+                                    -
+                                      key: text-black
+                                      value: Black
+                                    -
+                                      key: default-text-colours
+                                      value: Default
+                                  type: select
+                                  display: 'Position colour'
+                                  width: 50
+                                  max_items: 1
+                                  default: default-text-colours
+                              -
+                                handle: show_team_social
+                                field:
+                                  inline_label: 'Socials Icon Hidden'
+                                  inline_label_when_true: 'Socials Icon Shown'
+                                  default: true
+                                  type: toggle
+                                  display: 'Show Team Social'
+                          horizontal_scrolling_boxes:
+                            display: 'Horizontal Scrolling Boxes'
+                            icon: layout-split-verical
+                            fields:
+                              -
+                                handle: hsb_speed
+                                field:
+                                  options:
+                                    -
+                                      key: slow
+                                      value: Slow
+                                    -
+                                      key: medium
+                                      value: Medium
+                                    -
+                                      key: fast
+                                      value: Fast
+                                  max_items: 1
+                                  default: medium
+                                  type: select
+                                  display: Speed
+                                  width: 50
+                              -
+                                handle: hsb_direction
+                                field:
+                                  inline_label: 'Left to Right'
+                                  inline_label_when_true: 'Right to Left'
+                                  default: true
+                                  type: toggle
+                                  display: Direction
+                                  instructions: 'Which direction do you want things to move?'
+                                  width: 50
+                              -
+                                handle: hsb_boxes
+                                field:
+                                  mode: stacked
+                                  type: grid
+                                  display: Boxes
+                                  fields:
+                                    -
+                                      handle: hsb_content
+                                      field:
+                                        buttons:
+                                          - h2
+                                          - h3
+                                          - bold
+                                          - italic
+                                          - unorderedlist
+                                          - orderedlist
+                                          - removeformat
+                                          - quote
+                                          - anchor
+                                          - color
+                                          - h4
+                                        remove_empty_nodes: trim
+                                        type: bard
+                                        display: Content
+                                    -
+                                      import: button
+                                      prefix: hsb_
+                          popular_grid:
+                            display: 'Popular Grid'
+                            instructions: 'Allows you to display a grid and allocate one of them as a Grid with showing the Popular or New one in a more noticeable way.'
+                            icon: layout-three-columns
+                            fields:
+                              -
+                                handle: pop_grid
+                                field:
+                                  mode: stacked
+                                  min_rows: 2
+                                  type: grid
+                                  display: 'Pop Grid'
+                                  fields:
+                                    -
+                                      handle: is_popular
+                                      field:
+                                        inline_label_when_true: 'Shown as Popular'
+                                        type: toggle
+                                        display: 'Is Popular'
+                                    -
+                                      handle: pop_title
+                                      field:
+                                        type: text
+                                        display: Title
+                                    -
+                                      handle: pop_content
+                                      field:
+                                        buttons:
+                                          - h2
+                                          - h3
+                                          - bold
+                                          - italic
+                                          - unorderedlist
+                                          - orderedlist
+                                          - removeformat
+                                          - quote
+                                          - anchor
+                                          - color
+                                          - horizontalrule
+                                        remove_empty_nodes: false
+                                        type: bard
+                                        display: Content
+                                    -
+                                      import: button
+                                      prefix: pop_
+                      media:
+                        display: Media
+                        instructions: Images/Videos
+                        icon: media-image-picture-gallery
+                        sets:
+                          image:
+                            display: Image
+                            icon: media-image-camera
+                            fields:
+                              -
+                                handle: full_image
+                                field:
+                                  max_files: 1
+                                  container: full_images
+                                  folder: /
+                                  type: assets
+                                  display: 'Full Image'
+                                  instructions: 'This will be an image that is a image that can be sized to be a maximum of the full width of the screen.'
+                              -
+                                handle: additional_options
+                                field:
+                                  input_label: Options
+                                  type: revealer
+                                  display: 'Additional Options'
+                                  instructions: 'More options to show how the image appears.'
+                                  visibility: hidden
+                              -
+                                handle: image_width
+                                field:
+                                  options:
+                                    w-full: 'Full width'
+                                    'w-full md:w-[75%]': 75%
+                                    'w-full md:w-[80%]': 80%
+                                    'w-full md:w-[90%]': 90%
+                                  max_items: 1
+                                  type: select
+                                  display: 'Image Width'
+                                  instructions: 'How big would you like you image?'
+                                  if:
+                                    additional_options: 'equals true'
+                                  always_save: true
+                          video:
+                            display: Video
+                            instructions: 'The ability to add a video to the section.'
+                            icon: media-webcam-video
+                            fields:
+                              -
+                                import: video
+                          gallery:
+                            display: Gallery
+                            instructions: 'The images will flow next to each other and on top of each other.'
+                            icon: dashboard-layout-2
+                            fields:
+                              -
+                                handle: show_information
+                                field:
+                                  options:
+                                    'no': 'No'
+                                    hover: 'Hover Info'
+                                    'yes': 'Yes'
+                                  max_items: 1
+                                  default: 'yes'
+                                  type: select
+                                  display: 'Show Information'
+                                  instructions: 'Do you want any extra information on the gallery?'
+                              -
+                                handle: mortar_images
+                                field:
+                                  container: gallery
+                                  folder: /
+                                  type: assets
+                                  display: 'Mortar Images'
+                                  mode: grid
+                      column_blocks:
+                        display: 'Column Blocks'
+                        icon: layout-split-verical
+                        sets:
+                          two_column_box:
+                            display: 'Two Column Box'
+                            instructions: 'You can have a split of components in a left and right hand column.'
+                            icon: layout-two-columns
+                            fields:
+                              -
+                                import: column
+                                prefix: left_
+                              -
+                                import: column
+                                prefix: right_
+                          uneven_blocks:
+                            display: 'Uneven Blocks'
+                            instructions: 'This is similiar to the stacked boxes with more options'
+                            icon: layout-three-columns
+                            fields:
+                              -
+                                handle: stacks
+                                field:
+                                  mode: stacked
+                                  max_rows: 3
+                                  type: grid
+                                  display: Stacks
+                                  fields:
+                                    -
+                                      handle: stack_icon
+                                      field:
+                                        type: icon
+                                        display: 'Stack Icon'
+                                    -
+                                      handle: stack_title
+                                      field:
+                                        type: text
+                                        display: 'Stack Title'
+                                    -
+                                      handle: stack_content
+                                      field:
+                                        buttons:
+                                          - h2
+                                          - h3
+                                          - bold
+                                          - italic
+                                          - unorderedlist
+                                          - orderedlist
+                                          - removeformat
+                                          - quote
+                                          - anchor
+                                          - color
+                                        remove_empty_nodes: false
+                                        type: bard
+                                        display: 'Stack Content'
+                                    -
+                                      handle: stack_location
+                                      field:
+                                        options:
+                                          -
+                                            key: uneven-block-top
+                                            value: Top
+                                          -
+                                            key: uneven-block-center
+                                            value: Center
+                                          -
+                                            key: uneven-block-bottom
+                                            value: Bottom
+                                        default: uneven-block-top
+                                        type: button_group
+                                        display: 'Stack Location'
+                                        instructions: 'Where do you want the box to appear on the page?'
+                                        sortable: false
+                          three_stack_boxes:
+                            display: 'Three Stack Boxes'
+                            instructions: 'This will have 3 boxes in a columns so that you can display information in small boxes.'
+                            icon: layout-three-columns
+                            fields:
+                              -
+                                handle: boxes
+                                field:
+                                  mode: stacked
+                                  max_rows: 3
+                                  min_rows: 1
+                                  type: grid
+                                  display: Boxes
+                                  fields:
+                                    -
+                                      handle: box_icon
+                                      field:
+                                        type: icon
+                                        display: 'Box Icon'
+                                        instructions: 'Leave blank if you dont want an icon.'
+                                    -
+                                      handle: box_title
+                                      field:
+                                        type: text
+                                        display: 'Box Title'
+                                    -
+                                      handle: box_content
+                                      field:
+                                        buttons:
+                                          - h2
+                                          - h3
+                                          - bold
+                                          - italic
+                                          - unorderedlist
+                                          - orderedlist
+                                          - removeformat
+                                          - quote
+                                          - anchor
+                                          - color
+                                        remove_empty_nodes: false
+                                        type: bard
+                                        display: 'Box Content'
+                                    -
+                                      handle: stack_options
+                                      field:
+                                        input_label: Advanced
+                                        type: revealer
+                                        display: 'Stack Options'
+                                    -
+                                      handle: individual_icon_colour
+                                      field:
+                                        options:
+                                          -
+                                            key: 'bg-white text-black'
+                                            value: 'White Background, Black Icon'
+                                          -
+                                            key: 'bg-white text-gray-300'
+                                            value: 'White Background, Light Grey Icon'
+                                          -
+                                            key: 'bg-white text-gray-600'
+                                            value: 'White Background, Dark Grey Icon'
+                                          -
+                                            key: 'bg-black text-white'
+                                            value: 'Black Background, White Icon'
+                                          -
+                                            key: 'bg-black text-gray-300'
+                                            value: 'Black Background, Light Grey Icon'
+                                          -
+                                            key: 'default-bg-colours default-text-colours'
+                                            value: Default
+                                        max_items: 1
+                                        default: 'default-bg-colours default-text-colours'
+                                        type: select
+                                        display: 'Icon colour'
+                                        instructions: 'This is the colour of the current Icon in the current blocks.'
+                                        width: 50
+                                        if:
+                                          stack_options: 'equals true'
+                                        always_save: true
+                                    -
+                                      handle: individual_title_colour
+                                      field:
+                                        options:
+                                          -
+                                            key: text-white
+                                            value: White
+                                          -
+                                            key: text-gray-500
+                                            value: 'Mid Grey'
+                                          -
+                                            key: text-black
+                                            value: Black
+                                          -
+                                            key: default-text-colours
+                                            value: Default
+                                        clearable: true
+                                        type: select
+                                        display: 'Title colour'
+                                        width: 50
+                                        instructions: 'This is the colour of the current Title in the current block.'
+                                        max_items: 1
+                                        if:
+                                          stack_options: 'equals true'
+                                        always_save: true
+                                        default: default-text-colours
+                                    -
+                                      handle: individual_content_colour
+                                      field:
+                                        options:
+                                          -
+                                            key: text-white
+                                            value: White
+                                          -
+                                            key: text-gray-500
+                                            value: 'Mid Grey'
+                                          -
+                                            key: text-gray-600
+                                            value: 'Dark Grey'
+                                          -
+                                            key: text-black
+                                            value: Black
+                                          -
+                                            key: default-text-colours
+                                            value: Default
+                                        clearable: true
+                                        type: select
+                                        display: 'Content colour'
+                                        width: 50
+                                        instructions: 'This is the colour of the current Content in the current block.'
+                                        max_items: 1
+                                        if:
+                                          stack_options: 'equals true'
+                                        always_save: true
+                                        default: default-text-colours
+                                    -
+                                      handle: individual_box_colour
+                                      field:
+                                        options:
+                                          -
+                                            key: bg-white
+                                            value: White
+                                          -
+                                            key: 'bg-gray-500 border-gray-300'
+                                            value: 'Mid Grey'
+                                          -
+                                            key: bg-gray-600
+                                            value: 'Dark Grey'
+                                          -
+                                            key: bg-black
+                                            value: Black
+                                          -
+                                            key: default-bg-colours
+                                            value: Default
+                                        clearable: true
+                                        type: select
+                                        display: 'Box colour'
+                                        width: 50
+                                        instructions: 'This is the colour of the current Box in the current block.'
+                                        max_items: 1
+                                        if:
+                                          stack_options: 'equals true'
+                                        always_save: true
+                                        default: default-bg-colours
+        hero:
+          display: Hero
+          instructions: 'Pick a Hero'
+          icon: favorite-star
+          sets:
+            hero:
+              display: Hero
+              instructions: 'This will display an image with text'
+              icon: text-formatting-image-top
+              fields:
+                -
+                  handle: hero_heading
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - removeformat
+                      - color
+                    inline: break
+                    remove_empty_nodes: trim
+                    type: bard
+                    display: Heading
+                    instructions: 'This will be the main heading of the page.'
+                    save_html: true
+                -
+                  handle: hero_sub_heading
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - removeformat
+                      - color
+                      - h2
+                      - unorderedlist
+                      - orderedlist
+                      - anchor
+                    remove_empty_nodes: trim
+                    type: bard
+                    display: 'Sub Heading'
+                    instructions: 'This will display below the heading of the hero.'
+                -
+                  handle: hero_background_colour
+                  field:
+                    options:
+                      bg-white: White
+                      bg-primary: Primary
+                      bg-secondary: Secondary
+                      bg-tertiary: Tertiary
+                    max_items: 1
+                    default: bg-white
+                    type: select
+                    display: 'Hero Background Colour'
+                    width: 50
+                -
+                  handle: hero_image
+                  field:
+                    max_files: 1
+                    mode: grid
+                    container: hero
+                    folder: /
+                    type: assets
+                    display: 'Hero Image'
+                    width: 50
+            full_slider_hero:
+              display: 'Full Slider Hero'
+              instructions: 'Large Images that Slider to the next one'
+              icon: media-image-picture-gallery
+              fields:
+                -
+                  handle: slider_speed
+                  field:
+                    min: 2000
+                    max: 15000
+                    step: 1000
+                    default: 6000
+                    type: range
+                    display: 'Slider Speed'
+                    instructions: 'How fast do you want the images to change from one to another.'
+                -
+                  handle: hero_slider
+                  field:
+                    type: grid
+                    display: 'Hero Slider'
+                    mode: stacked
+                    min_rows: 1
+                    fields:
+                      -
+                        handle: title
+                        field:
+                          type: text
+                          display: Title
+                      -
+                        handle: hero_content
+                        field:
+                          buttons:
+                            - h2
+                            - h3
+                            - bold
+                            - italic
+                            - unorderedlist
+                            - orderedlist
+                            - removeformat
+                            - anchor
+                          remove_empty_nodes: false
+                          type: bard
+                          display: 'Hero Content'
+                      -
+                        handle: hero_asset
+                        field:
+                          max_files: 1
+                          container: hero
+                          folder: /
+                          type: assets
+                          display: 'Hero Asset'
+            animated_hero:
+              display: 'Animated Hero'
+              icon: home-house
+              fields:
+                -
+                  handle: multiple_headings
+                  field:
+                    inline_label: 'Single Heading'
+                    inline_label_when_true: 'Multiple Heading'
+                    type: toggle
+                    display: 'Multiple Headings'
+                    instructions: 'Do you have one heading or different headings per image?'
+                -
+                  handle: ah_title
+                  field:
+                    type: text
+                    display: Title
+                    always_save: true
+                    instructions: 'Hero Heading'
+                -
+                  handle: ah_subheading
+                  field:
+                    buttons:
+                      - h2
+                      - h3
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - color
+                    remove_empty_nodes: false
+                    type: bard
+                    display: Subheading
+                    always_save: true
+                    instructions: 'This is optional.'
+                -
+                  handle: ah_hero_images
+                  field:
+                    container: hero
+                    folder: /
+                    type: assets
+                    display: 'Hero Images'
+                -
+                  handle: ah_animate_images
+                  field:
+                    options:
+                      -
+                        key: scale
+                        value: 'Scale Up'
+                      -
+                        key: fadeIn
+                        value: 'Fade In'
+                    default: fadeIn
+                    type: select
+                    display: 'Animate Images'
+                    width: 50
+                -
+                  handle: ah_speed
+                  field:
+                    min: 3000
+                    max: 15000
+                    step: 500
+                    default: 5000
+                    type: range
+                    display: Speed
+                    instructions: 'How fast do you want the images to change. Each 1000 is a second.'
+                    width: 50
+        call_to_actions:
+          display: 'Call To Actions'
+          instructions: 'This is the text that you want to display to the visitor.'
+          icon: alert-warning-exclamation-mark
+          sets:
+            call_to_action:
+              display: 'Call To Action'
+              instructions: 'This is the text that you want to display to the visitor.'
+              icon: alert-warning-exclamation-mark
+              fields:
+                -
+                  import: call_to_action
+                -
+                  handle: cta_width
+                  field:
+                    options:
+                      -
+                        key: 'lg:w-[25%]'
+                        value: 'Quarter Size'
+                      -
+                        key: 'lg:w-[33%]'
+                        value: 'Third Size'
+                      -
+                        key: 'lg:w-[50%]'
+                        value: 'Half Size'
+                      -
+                        key: 'lg:w-[75%]'
+                        value: 'Three Quarter Size'
+                      -
+                        key: 'lg:w-full'
+                        value: 'Full Width'
+                    max_items: 1
+                    default: 'md:w-full'
+                    type: select
+                    display: 'CTA Width'
+                    instructions: 'How wide would you like the Call to Action?'
+        information:
+          display: Information
+          instructions: 'Do you want to display information from Records / Collections'
+          icon: hierarchy-vertical-nav-flow
+          sets:
+            news:
+              display: News
+              instructions: 'Do you want to show people the latest news?'
+              icon: media-news-paper
+              fields:
+                -
+                  import: section_detail
+                -
+                  handle: news_heading
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - removeformat
+                      - color
+                      - h2
+                      - h3
+                      - unorderedlist
+                      - orderedlist
+                    remove_empty_nodes: trim
+                    type: bard
+                    display: Heading
+                    instructions: 'This will be the heading of the news section, leave empty if you dont want to show anything.'
+                    reading_time: true
+                -
+                  handle: news_updated
+                  field:
+                    options:
+                      manual: Manual
+                      latest: 'Latest news'
+                    max_items: 1
+                    default: latest
+                    type: select
+                    display: 'News Updated'
+                    instructions: 'Do you want to manually update this or let it go off the latest news?'
+                -
+                  handle: news_entries
+                  field:
+                    collections:
+                      - news
+                    search_index: news
+                    type: entries
+                    display: 'News Entries'
+                    if:
+                      news_updated: 'equals manual'
+                    always_save: true
+                -
+                  handle: news_collection
+                  field:
+                    type: collections
+                    display: 'News Collection'
+                    always_save: true
+                    if:
+                      news_updated: 'equals latest'
+                -
+                  handle: news_limit
+                  field:
+                    min: 1
+                    max: 5
+                    default: 3
+                    type: range
+                    display: 'News Limit'
+                    always_save: true
+                    if:
+                      news_updated: 'equals latest'
+            collections:
+              display: Collections
+              instructions: 'This will display items from a Collection'
+              icon: search-magnifying-glass
+              fields:
+                -
+                  import: section_detail
+                -
+                  handle: heading_collection
+                  field:
+                    buttons:
+                      - bold
+                      - italic
+                      - removeformat
+                      - color
+                      - h2
+                      - h3
+                      - unorderedlist
+                      - orderedlist
+                    remove_empty_nodes: trim
+                    type: bard
+                    display: Heading
+                    instructions: 'This will be the heading of the news section, leave empty if you dont want to show anything.'
+                    reading_time: true
+                -
+                  handle: which_collection
+                  field:
+                    max_items: 1
+                    type: collections
+                    display: 'Which Collection'
+                    instructions: 'Pick the collection you would like to display'
+                    width: 50
+                -
+                  handle: pagination_value
+                  field:
+                    min: 3
+                    default: 10
+                    type: range
+                    display: 'Pagination value'
+                    instructions: 'How many results would you like to be shown on the page?'
+                    width: 50
+                -
+                  handle: ordering
+                  field:
+                    options:
+                      order: 'Order By Collection'
+                      'date:asc': 'Latest by Date'
+                      'date:desc': 'Oldest by Date'
+                      'title:asc': 'A - Z by Title'
+                      'title:desc': 'Z - A by Title'
+                    max_items: 1
+                    default: 'date:asc'
+                    type: select
+                    display: Ordering
+                    instructions: 'How do you want to order the Entries?'
+                    width: 50
+        reports:
+          display: Reports
+          sets:
+            reports:
+              display: 'Reports By Year'
+              fields:
+                -
+                  handle: which_collection
+                  field:
+                    type: collections
+                    display: 'Which Collection'
+                -
+                  handle: filter_terms
+                  field:
+                    create: false
+                    taxonomies:
+                      - report_type
+                    type: terms
+                    display: 'Filter Terms'
+            reports_by_term:
+              display: 'Reports by Term'
+              fields:
+                -
+                  handle: which_collection
+                  field:
+                    type: collections
+                    display: 'Which Collection'
+                -
+                  handle: filter_terms
+                  field:
+                    create: false
+                    taxonomies:
+                      - report_type
+                    type: terms
+                    display: 'Filter Terms'
+        layouts:
+          display: Layouts
+          sets:
+            bento_grid_1:
+              display: 'Bento Grid 1'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: bento_layout_1_grid
+                  field:
+                    mode: stacked
+                    max_rows: 10
+                    min_rows: 10
+                    type: grid
+                    display: 'Bento Layout 1 Grid'
+                    fields:
+                      -
+                        import: bento_layouts
+            bento_grid_2:
+              display: 'Bento Grid 2'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: bento_layout_2_grid
+                  field:
+                    mode: stacked
+                    max_rows: 5
+                    min_rows: 5
+                    type: grid
+                    display: 'Bento Layout 2 Grid'
+                    fields:
+                      -
+                        import: bento_layouts
+            bento_grid_3:
+              display: 'Bento Grid 3'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: bento_layout_3_grid
+                  field:
+                    mode: stacked
+                    max_rows: 10
+                    min_rows: 10
+                    type: grid
+                    display: 'Bento Layout 3 Grid'
+                    fields:
+                      -
+                        import: bento_layouts
+            bento_grid_4:
+              display: 'Bento Grid 4'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: bento_layout_4_grid
+                  field:
+                    mode: stacked
+                    max_rows: 7
+                    min_rows: 7
+                    type: grid
+                    display: 'Bento Layout 4 Grid'
+                    fields:
+                      -
+                        import: bento_layouts
+            bento_grid_5:
+              display: 'Bento Grid 5'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: bento_intro
+                  field:
+                    buttons:
+                      - h2
+                      - h3
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - color
+                      - h4
+                    remove_empty_nodes: trim
+                    type: bard
+                    display: 'Bento Intro'
+                -
+                  handle: bento_layout_5_grid
+                  field:
+                    mode: stacked
+                    max_rows: 10
+                    min_rows: 10
+                    type: grid
+                    display: 'Bento Layout 5 Grid'
+                    fields:
+                      -
+                        import: bento_layouts

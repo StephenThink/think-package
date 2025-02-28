@@ -1,0 +1,52 @@
+{{ if site_admin:has_training_mode }}
+    {{ if logged_in }}
+        {{ user:is role="editors" }}
+
+{{#             {{? $show_page_progress=true ?}} #}}
+
+            <img src="{{ glide:site_admin:training_header_hero format='webp' q='50' }}" alt="{{ site_admin:training_header_hero.alt }}" class="w-full h-auto object-cover training-header pt-16" />
+        <div class="flex px-4 -mt-6 xl:-mt-64 gap-4 justify-center" >
+            <div>
+                <ul id="training-sub-nav" class="flex flex-col list-none gap-2 bg-gray-100 dark:bg-think-dark rounded-lg p-4 whitespace-nowrap">
+                    {{ nav:collection:training include_home="true" select="title|url" }}
+                        <li class="">
+                             {{ if children }} {{ title }}  {{ else }} <a href="{{ url }}" class="{{ if is_current }}current{{ else }}think-nav-link{{ /if }}">{{ title }}</a> {{ /if }}
+                        </li>
+
+                        {{children}}
+                            <li class="">
+                                {{ if children }} <div class="pl-3"> {{ title }}</div> {{ else }}<a href="{{ url }}" class="{{ if is_current }}current{{ else }}think-nav-link{{ /if }}"><span class="-translate-y-1">{{ svg src="down_right" }}</span> {{ title }}</a>{{ /if }}
+                            </li>
+                            {{ children }}
+                                 <li class="pl-6">
+                                    <a href="{{ url }}" class="{{ if is_current }}current{{ else }}think-nav-link{{ /if }}"><span class="-translate-y-1">{{ svg src="down_right" }}</span> {{ title }}</a>
+                                </li>
+                            {{ /children }}
+                        {{ /children }}
+                    {{ /nav:collection:training }}
+                </ul>
+            </div>
+            <div class="w-7xl flex flex-col justify-between h-full " >
+                <div class="">
+                        <div class="bg-gray-100 dark:bg-think-dark rounded-lg px-4 py-3">
+                            <div class=" flex items-center container-inner overflow-hidden ">
+                                <h1 class="text-4xl font-bold text-think-dark dark:text-think-yellow" id="trainingH1">{{ title }}</h1>
+                            </div>
+                        </div>
+        <div class="mt-4 xl:pt-4 bg-body-background rounded-lg pb-8 px-4" id="trainingContent">
+
+                {{ partial:components/page/page_content customId="training" }}
+        </div>
+                </div>
+{{#         <div class="ml-3 p-4 w-10/12 border-gray-100 rounded-lg border mb-4"> #}}
+{{#                 {{ partial:components.training.index_toc }} #}}
+{{#         </div> #}}
+            </div>
+        </div>
+        {{ /user:is }}
+    {{ else }}
+        {{ partial:components.training.login_page }}
+    {{ /if }}
+{{ else }}
+    {{ redirect to="/" }}
+{{ /if }}

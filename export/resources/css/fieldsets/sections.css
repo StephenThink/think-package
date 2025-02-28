@@ -1,0 +1,172 @@
+/* Boxes */
+#unevenStackSection {
+    .uneven-block-top {
+        @apply md:pt-0
+    }
+
+    .uneven-block-center {
+        @apply md:pt-6
+    }
+
+    .uneven-block-bottom {
+        @apply md:pt-12
+    }
+}
+
+#stackBox {
+    #stackBoxTitle {
+        @apply text-xl font-semibold
+    }
+
+    #stackBoxContent {
+        @apply mt-2 mb-4
+    }
+}
+
+/*#fullWidthBox {*/
+/*    #fullWidthBoxTitle {*/
+/*        @apply text-2xl mt-5 font-semibold*/
+/*    }*/
+
+/*    #fullWidthBoxContent {*/
+/*        @apply mt-2 mb-4 text-lg*/
+/*    }*/
+/*}*/
+
+#box {
+    #boxTitle {
+        @apply text-2xl font-semibold
+    }
+
+    #boxContent {
+        @apply mt-2 mb-4 text-lg
+    }
+}
+
+:root {
+    --box-height: 400px;
+    --box-width: 500px;
+}
+
+/*.horizontal-scrolling-boxes {*/
+/*    display: flex;*/
+/*    flex-wrap: nowrap;*/
+/*    justify-content: flex-start;*/
+/*    width: 100%; !* Ensure the container takes up the full width *!*/
+/*    position: relative;*/
+/*    height: calc(var(--box-height) + 50px);*/
+/*    !*overflow-x: scroll; !* Enables horizontal scrolling *!*!*/
+/*}*/
+
+/*.horizontal-scrolling-boxes .box {*/
+/*    animation: scroll-left linear 10s infinite;*/
+/*    width: var(--box-width); !* Explicitly set width *!*/
+/*    height: var(--box-height); !* Ensure each box has a fixed height *!*/
+/*    flex-shrink: 0; !* Prevents shrinking of boxes *!*/
+/*}*/
+
+/*@keyframes scroll-left {*/
+/*    0% {*/
+/*        transform: translateX(0); !* Start at the normal position *!*/
+/*    }*/
+/*    100% {*/
+/*        transform: translateX(-100%); !* Move to the left by the width of the entire content *!*/
+/*    }*/
+/*}*/
+
+/*#box {*/
+/*    overflow-y: auto; !* Allows vertical scrolling if needed *!*/
+/*}*/
+
+
+/* Horizontal Scroller */
+.scroller {
+    max-width: 100%;
+
+}
+
+.scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.box {
+    animation: scroll-left linear 10s infinite;
+    width: var(--box-width); /* Explicitly set width */
+    height: var(--box-height); /* Ensure each box has a fixed height */
+    flex-shrink: 0; /* Prevents shrinking of boxes */
+    padding: 2rem;
+
+
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+    var(--_animation-direction, forwards) linear infinite;
+
+    &:hover {
+        -webkit-animation-play-state:paused;
+        -moz-animation-play-state:paused;
+        -o-animation-play-state:paused;
+        animation-play-state: paused;
+    }
+}
+
+.scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+}
+
+.scroller[data-speed="medium"] {
+    --_animation-duration: 40s;
+}
+
+
+.scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
+
+
+/* Popular Grid */
+
+.popContent ul {
+    @apply columns-1 md:columns-2 lg:columns-1;
+}
+
+.is-popular {
+    @apply -translate-y-6 outline outline-pink-600
+}
+
+.not-popular {
+    @apply  outline outline-black
+}
+

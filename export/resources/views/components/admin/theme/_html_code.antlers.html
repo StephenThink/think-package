@@ -1,0 +1,5 @@
+{{ if site_admin:theme_changer }}
+    x-data="theme_changer()"
+    x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+    :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+{{ /if }}

@@ -1,0 +1,31 @@
+<section class="relative block {{ section_colour }} {{ top_padding }} {{ bottom_padding }} pt-24">
+    <div class="flex w-full flex-col items-center justify-center rounded-lg p-6 dark:bg-slate-900 lg:h-screen bento-grid">
+        <div class="grid w-full grid-rows-18 md:grid-rows-14 grid-cols-4 gap-4 lg:h-full lg:grid-cols-5 lg:grid-rows-4">
+            {{ foreach:bento_layout_1_grid as="bento" }}
+                {{ bento }}
+                    {{ if key == 0 }}
+                        <div class="col-span-2 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 1 }}
+                        <div class="col-span-2 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 2 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 3 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 4 }}
+                        <div class="col-span-4 lg:col-span-3 row-span-3 lg:row-span-2 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 5 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-2 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 6 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 7 }}
+                        <div class="row-span-3 lg:row-span-1 col-span-4 lg:col-span-3 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 8 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 9 }}
+                        <div class="col-span-2 lg:col-span-1 row-span-3 md:row-span-2 lg:row-span-1 {{ inside_cell_alignment }} bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ /if }}
+                {{ /bento }}
+            {{ /foreach:bento_layout_1_grid }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="relative block {{ section_colour }} {{ top_padding }} {{ bottom_padding }} pt-24">
+    <div class="flex lg:h-screen w-full flex-col items-center justify-center rounded-lg p-6 dark:bg-slate-900 bento-grid">
+        <div class="grid h-[90rem] lg:h-full w-full grid-cols-4 md:grid-cols-3 grid-rows-9 md:grid-rows-6 gap-4">
+            {{ foreach:bento_layout_2_grid as="bento" }}
+                {{ bento }}
+                    {{ if key == 0 }}
+                        <div class="col-span-4 md:col-span-2 row-span-3 bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 1 }}
+                        <div class="col-span-2 md:col-span-1 row-span-3 md:row-span-4 bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 2 }}
+                        <div class="col-span-2 md:col-span-1 row-span-3 md:row-span-3 bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 3 }}
+                        <div class="col-span-2 md:col-span-1 row-span-3 md:row-span-3 bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ elseif key == 4 }}
+                        <div class="col-span-2 md:col-span-1 row-span-3 md:row-span-2 bento-cell">{{ partial:sets.bento.bento_section }}</div>
+                    {{ /if }}
+                {{ /bento }}
+            {{ /foreach:bento_layout_2_grid }}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,16 @@
+<div class="w-full lg:w-6/12 px-4" id="footerRight">
+    <div class="flex flex-wrap items-top mb-6">
+        {{ footer_menus }}
+            <div class="w-full md:w-4/12 px-4 lg:ml-auto" id="footerMenu">
+                <span class="block whitespace-nowrap" id="footerMenuTitle">{{menu_title}}</span>
+                <ul>
+                    {{ nav :handle="navs_field" }}
+                        <li>
+                            <a class="block" href="{{url}}">{{title}}</a>
+                        </li>
+                    {{ /nav}}
+                </ul>
+            </div>
+        {{ /footer_menus }}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+title: 'Content Portrait Images'
+disk: portrait-image
+allow_uploads: true
+allow_downloading: true
+allow_renaming: true
+allow_moving: true
+create_folders: true
+warm_presets:
+  - portrait-image-sm-webp
+  - portrait-image-md-webp
+  - portrait-image-lg-webp
+  - portrait-image-xl-webp
+  - portrait-image-2xl-webp
+  - portrait-image-3xl-webp
+  - portrait-image-4xl-webp
+  - portrait-image-4k-webp

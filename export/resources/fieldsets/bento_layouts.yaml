@@ -1,0 +1,101 @@
+title: 'Bento Layouts'
+fields:
+  -
+    handle: inside_cell_alignment
+    field:
+      options:
+        -
+          key: 'justify-start items-start text-left'
+          value: 'Top Left'
+        -
+          key: 'justify-center items-start text-center'
+          value: 'Top Center'
+        -
+          key: 'justify-end items-start text-right'
+          value: 'Top Right'
+        -
+          key: 'justify-start items-center text-left'
+          value: 'Middle Left'
+        -
+          key: 'justify-center items-center text-center'
+          value: 'Middle Center'
+        -
+          key: 'justify-start items-center text-right'
+          value: 'Middle Right'
+        -
+          key: 'justify-end items-end text-left'
+          value: 'Bottom Left'
+        -
+          key: 'justify-end items-end text-center'
+          value: 'Bottom Center'
+        -
+          key: 'justify-end items-end text-right'
+          value: 'Bottom Right'
+      max_items: 1
+      default: 'justify-center items-center text-center'
+      type: select
+      display: 'Inside Cell Alignment'
+  -
+    handle: bento_section
+    field:
+      remove_empty_nodes: false
+      type: bard
+      display: 'Bento Section'
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - color
+        - horizontalrule
+      sets:
+        set:
+          display: Sets
+          sets:
+            image:
+              display: Image
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  handle: bento_image
+                  field:
+                    max_files: 1
+                    container: bento
+                    folder: /
+                    type: assets
+                    display: 'Bento Image'
+            content_and_button:
+              display: 'Content and Button'
+              fields:
+                -
+                  handle: bento_sub_content
+                  field:
+                    buttons:
+                      - h2
+                      - h3
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - color
+                      - horizontalrule
+                    remove_empty_nodes: false
+                    type: bard
+                    display: 'Bento Sub Content'
+                -
+                  import: button
+                  prefix: bento_
+            button:
+              display: Button
+              fields:
+                -
+                  import: button
+                  prefix: bento_

@@ -1,0 +1,30 @@
+{{ form:create in="{ type_of_form:handle }" }}
+    {{ if success }}
+        <div class="container-inner">
+
+        <div class="bg-gray-900 text-white px-6 py-3 rounded-sm shadow-sm">
+            {{success_message}}
+        </div>
+        </div>
+    {{ else }}
+        {{ if errors }}
+            <div class="bg-red-300 text-white p-2">
+                {{ errors }}
+                    {{ value }}<br>
+                {{ /errors }}
+            </div>
+        {{ /if }}
+
+        {{ fields }}
+            {{ field }}
+        {{ /fields }}
+
+        <input type="text" class="hidden" name="{{ honeypot ?? 'address' }}">
+
+        <div class="text-center mt-6">
+            <button class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded-sm shadow-sm hover:shadow-lg outline-hidden focus:outline-hidden mr-1 mb-1">
+                {{submit_text}}
+            </button>
+        </div>
+    {{ /if }}
+{{ /form:create }}

@@ -1,0 +1,25 @@
+<div>
+
+<img
+    id="portraitImageContainer"
+    srcset="
+        {{ glide:portrait_image preset='portrait-image-4k-webp'  }} 2560w,         {{# Generate the 4k image (2560px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-4xl-webp' }} 1920w,         {{# Generate the 4xl image (1920px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-3xl-webp'  }} 1750w,        {{# Generate the 3xl image (1750px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-2xl-webp'  }} 1360w,         {{# Generate the 2xl image (1360px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-xl-webp'  }} 1140w,        {{# Generate the xl image (1140px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-lg-webp'  }} 980w,        {{# Generate the lg image (980px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-md-webp'  }} 740w,        {{# Generate the md image (740px wide) #}}
+        {{ glide:portrait_image preset='portrait-image-sm-webp'  }} 360w
+    "
+
+    alt="{{ portrait_image:alt }}"
+    class="w-full max-w-full md:max-w-[470px] max-h-three-quarter-screen object-contain"
+    src="{{ glide:portrait_image preset='portrait-image-4k-webp'}}"
+
+    width="{{ portrait_image.width }}"
+    height="{{ portrait_image.height }}"
+
+    loading="lazy"
+/>
+</div>

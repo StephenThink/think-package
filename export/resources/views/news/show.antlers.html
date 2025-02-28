@@ -1,0 +1,17 @@
+<section class="container relative mx-auto">
+    <div
+        class="relative pt-40 pb-32 flex content-center items-center justify-center"
+    >
+        <h1 id="news_heading" class="text-6xl font-semibold">{{ title }}</h1>
+    </div>
+</section>
+
+
+
+{{ partial:components/page/page_content }}
+
+
+{{ collection from="news" limit="3" as="other_news" :slug:isnt="slug" }}
+    {{ partial:components.page.news_block top_padding="pt-16" bottom_padding="pb-32" :news_entries="other_news" heading="Other News" }}
+{{ /collection }}
+

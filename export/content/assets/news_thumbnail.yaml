@@ -1,0 +1,13 @@
+title: 'News Thumbnail'
+disk: news-thumbnail
+allow_uploads: true
+create_folders: true
+warm_presets:
+  - portrait-image-sm-webp
+  - portrait-image-md-webp
+  - portrait-image-lg-webp
+  - portrait-image-xl-webp
+  - portrait-image-2xl-webp
+  - portrait-image-3xl-webp
+  - portrait-image-4xl-webp
+  - portrait-image-4k-webp

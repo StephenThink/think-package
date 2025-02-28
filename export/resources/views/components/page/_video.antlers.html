@@ -1,0 +1,19 @@
+<video
+    class="object-cover {{ classes }} {{ video_effects }}"
+    {{ muted ?= 'muted' }}
+    {{ looped ?= 'loop' }}
+    {{ autoplay ?= 'autoplay' }}
+    {{ controls ?= 'controls' }}
+    title="{{ video_description }}"
+    {{ poster_image ?= 'poster="{{glide:poster_image|url preset="content-video-posters"}}"' }}
+    width="{{ video_files.0.width }}"
+    height="{{ video_files.0.height }}"
+    playsinline
+    preload="{{ preload_video }}"
+>
+    {{ video_files }}
+    <source src="{{ url }}" type="{{mime_type}}" alt="{{ alt }}" >
+    {{ /video_files }}
+</video>
+
+

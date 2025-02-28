@@ -1,0 +1,36 @@
+<section class="mb-section-bottom">
+{{? $boxCount = count($boxes->value()) ?}}
+
+<div class="grid grid-cols-1
+        {{ if $boxCount === 2 }}
+            md:grid-cols-2
+        {{ else }}
+            md:grid-cols-1
+        {{ /if }}
+
+        {{ if $boxCount === 3 }}
+            md:grid-cols-1
+            lg:grid-cols-3
+        {{ /if }}
+
+
+
+
+md:flex-row justify-center gap-6" id="threeStackBoxes">
+    {{boxes}}
+    <div class="w-full p-4 text-center {{ individual_box_colour }} shadow-lg rounded-lg" id="box">
+        {{ if box_icon }}
+            <div class="{{ individual_icon_colour  }} p-2 inline-flex items-center justify-center  mb-column-gap rounded-full" id="boxIcon">
+                <div class="{{ individual_icon_colour  }} size-6"> {{ box_icon }}</div>
+            </div>
+        {{ /if }}
+
+        <h3 class="{{ individual_title_colour  }}" id="boxTitle">{{ box_title }}</h3>
+        <div class="{{ individual_content_colour }}" id="boxContent">
+            {{box_content | widont}}
+        </div>
+    </div>
+
+    {{/boxes}}
+</div>
+</section>

@@ -1,0 +1,20 @@
+{{ if site_admin:back_to_top }}
+    <div
+        class="fixed bottom-5 right-[-70px]
+               bg-up-background dark:bg-up-background-dark
+               fill-up-text dark:fill-up-text-dark
+               rounded-full border-2 border-up-text
+               hover:ring-1 group
+               cursor-pointer z-50
+               transition-transform duration-500 ease-out
+"
+        :class="{
+            'translate-x-[-80px] rotate-0': show,
+            'rotate-180' : !show
+            }"
+        x-data="backToTop()"
+        @click="scrollToTop()"
+    >
+        {{ svg src="{site_admin:up_arrow}" class="size-16 group-hover:animate-back-to-top" }}
+    </div>
+{{ /if }}

@@ -1,0 +1,21 @@
+<div
+    @click="toggle()"
+    @click.outside="close()"
+    role="button"
+    :aria-expanded="state"
+    aria-haspopup="true"
+    class="navbar-mobile-link items-center inline-flex flex-grow justify-between w-full
+    cursor-pointer
+">
+                        {{ title }}
+    <!-- Dropdown icon -->
+    {{ svg src="down.svg" sanitize="false" }}
+
+{{#                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" #}}
+{{#                                stroke="currentColor" #}}
+{{#                                class="ml-2 w-5 h-5 transition-all cursor-pointer" :class="{'rotate-90': state}" #}}
+{{#                                aria-hidden="true" #}}
+{{#                           > #}}
+{{#                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/> #}}
+{{#                         </svg> #}}
+                        </div>

@@ -1,0 +1,110 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              input_type: text
+              antlers: false
+              display: Name
+              type: text
+              icon: text
+              instructions: 'This is the name of the company'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+              validate:
+                - required
+              width: 50
+          -
+            handle: established
+            field:
+              input_type: number
+              antlers: false
+              display: Established
+              type: text
+              icon: text
+              instructions: 'When was the Company founded'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+              width: 50
+          -
+            handle: logo
+            field:
+              mode: grid
+              container: assets
+              folder: logos
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              max_files: 1
+              display: Logo
+              type: assets
+              icon: assets
+              instructions: 'This is the company logo you would like to be displayed on the page, do not forget to fill in the alt tag.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+          -
+            handle: address
+            field:
+              mode: keyed
+              keys:
+                receiver: Receiver
+                building_name: 'Building Name'
+                building_number: Number
+                address_1: Street
+                address_2: 'Address 2'
+                town_city: 'Town / City'
+                county: County
+                postcode: 'Post Code'
+              display: Address
+              type: array
+              icon: array
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+              instructions: 'This will be used on the site anywhere that requires an address.'
+              hide_display: false
+  social:
+    display: Social
+    sections:
+      -
+        display: 'Lets be Social'
+        instructions: "Please fill in the corrsponding social links, these will in turn link to the icons in the **'/assets/site/social-icons'**.  To use this on a page use the following ```{{ partial:partials/socials }}```"
+        fields:
+          -
+            handle: social_links
+            field:
+              mode: keyed
+              keys:
+                telephone: Telephone
+                email: Email
+                facebook: Facebook
+                Instagram: Instagram
+                pinterest: Pinterest
+                snapchat: Snapchat
+                telegram: Telegram
+                tiktok: Tiktok
+                twitch: Twitch
+                twitter: Twitter
+                whatsapp: Whatsapp
+                youtube: Youtube
+                zoom: Zoom
+              display: 'Social Links'
+              type: array
+              icon: array
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: false
+              instructions: "This will use the corresponding icon files located in **'/assets/site/social-icons'**. To change an icon, simply replace the corresponding SVG file in the **'social-icons'** folder."
+              hide_display: false

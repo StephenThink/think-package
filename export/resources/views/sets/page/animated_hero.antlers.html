@@ -1,0 +1,67 @@
+<section
+    class="relative flex content-center items-center justify-center min-h-three-quarter-screen animated-hero overflow-hidden"
+    id="hero"
+    role="banner"
+    data-animate="{{ah_animate_images}}"
+    x-data='animated_hero({{ah_speed}})'
+>
+
+{{ ah_hero_images }}
+        <img
+            srcset="
+                {{ glide:url preset='hero-4k-webp'  }} 2560w,
+                {{ glide:url preset='hero-4xl-webp' }} 1920w,
+                {{ glide:url preset='hero-3xl-webp'  }} 1750w,
+                {{ glide:url preset='hero-2xl-webp'  }} 1360w,
+                {{ glide:url preset='hero-xl-webp'  }} 1140w,
+                {{ glide:url preset='hero-lg-webp'  }} 980w,
+                {{ glide:url preset='hero-md-webp'  }} 740w,
+                {{ glide:url preset='hero-sm-webp'  }} 360w
+                "
+            class="absolute top-0 w-full h-full object-cover"
+            src="{{ glide:url preset="hero-4k-webp" }}"
+            alt="{{ alt }}"
+            width="{{ width }}"
+            height="{{ height }}"
+            data-filename="{{ filename }}"
+{{#             data-animate-image="{{ah_animate_images}}" #}}
+{{#             id="ah-hero-image-{{ index }}" #}}
+        />
+    {{ /ah_hero_images }}
+
+
+    <div class="container relative mx-auto py-10">
+      <div class="items-center flex flex-wrap">
+            {{ if !multiple_headings }}
+                <div class="w-full lg:w-lg px-4 mx-auto text-center" id="heroText">
+                    <h1 class="" id="hero_heading">
+                        {{ ah_title | widont }}
+                    </h1>
+                    {{ if ah_subheading }}
+                        <p class="mt-4 " id="hero_sub_heading">
+                            {{ ah_subheading | widont | strip_tags('p')}}
+                        </p>
+                    {{ /if }}
+                </div>
+
+            {{ else }}
+                {{ ah_hero_images }}
+                    <div class="w-full lg:w-lg px-4 mx-auto text-center" id="heroText" x-cloak
+                         x-show="{{index}} === currentIndex"
+                    >
+
+                        <h1 class="" id="hero_heading">
+                            {{ hero_title | widont }}
+                        </h1>
+                        {{ if hero_subheading }}
+                            <p class="mt-4 " id="hero_sub_heading">
+                                {{ hero_subheading | widont | strip_tags('p')}}
+                            </p>
+                        {{ /if }}
+                    </div>
+                {{ /ah_hero_images }}
+            {{ /if }}
+      </div>
+    </div>
+
+</section>

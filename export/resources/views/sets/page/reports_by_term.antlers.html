@@ -1,0 +1,104 @@
+{{ collection :from="which_collection" :taxonomy:report_type="filter_terms" as="reports" query_scope="reporting_terms" }}
+    <div class="container-inner mt-12 reports" x-data='report_term({{reports|to_json}})'>
+
+        <!-- Mobile Dropdown -->
+        <div class="lg:hidden relative">
+            <!-- Trigger button -->
+            <button @click="toggle" class="dropdown-button">
+                Select Category
+                <svg :class="{ 'transform rotate-180': dropdown }"
+                     class="h-4 w-4 inline-block ml-2" viewBox="0 0 20 20"
+                     fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M10 13a1 1 0 0 1-.707-.293l-5-5a1 1 0 1 1 1.414-1.414L10 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5A1 1 0 0 1 10 13z"/>
+                </svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div x-show="dropdown" @click.away="close()"
+                 class="dropdown-menu">
+                <template x-for="term in terms" key="term">
+                    <div x-text="termLabel(term)" @click="selectTerm(term); close()"
+                         :class="{ 'dropdown-item-selected': selectedTerm === term }"
+                         class="cursor-pointer px-4 py-2 dropdown-item">
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Desktop Grid -->
+        <div class="hidden lg:grid grid-cols-3 2xl:grid-cols-4  gap-5 py-6 items-center">
+            <template x-for="term in terms" key="term">
+                <div x-text="termLabel(term)"
+                     class="cursor-pointer flex justify-center items-center dropdown-item px-4 py-6 w-full"
+                     :class="{ 'dropdown-item-selected': selectedTerm === term }"
+                     @click="selectTerm(term)">
+                </div>
+            </template>
+        </div>
+
+        <button @click="toggleSearch" class="dropdown-button">Directed Search <svg :class="{ 'transform rotate-180': refineSearch }"
+                                                                                   class="h-4 w-4 inline-block ml-2" viewBox="0 0 20 20"
+                                                                                   fill="currentColor">
+            <path fill-rule="evenodd"
+                  d="M10 13a1 1 0 0 1-.707-.293l-5-5a1 1 0 1 1 1.414-1.414L10 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5A1 1 0 0 1 10 13z"/>
+        </svg></button>
+        <div class="p-4 flex flex-col items-center gap-2 border border-2 border-report-divide dark:report-divide-dark" x-cloak x-show="refineSearch" collapse>
+            <input type="text" x-model.debounce="searchTerm" placeholder="Search by title"
+                   class="w-full p-2 border border-gray-300 rounded">
+            <div class="w-full flex-col flex lg:flex-row items-center justify-around gap-5 space-y-2 lg:space-y-0">
+                <div class="flex items-center gap-2 justify-between  w-full">
+                    <label for="startDate" class="font-bold w-full">Start Date:</label>
+                    <input type="date" id="startDate" x-model="startDate"
+                           class="p-2 border border-gray-300 rounded w-full">
+                </div>
+
+                <div class="flex items-center gap-2 justify-between  w-full">
+                    <label for="endDate" class="font-bold w-full">End Date:</label>
+                    <input type="date" id="endDate" x-model="endDate"
+                           class="p-2 border border-gray-300 rounded  w-full">
+                </div>
+                <button class="px-4 py-2 bg-red-500 text-white" @click="resetFilters">Reset</button>
+            </div>
+        </div>
+
+
+        <div class="flex flex-col  report-table-style">
+
+
+
+
+
+            <div class="flex items-center justify-around text-center p-4 text-2xl">
+                <div class="w-1/4">Date</div>
+                <div class="w-1/4">Category</div>
+                <div class="w-1/2">Title</div>
+                <div class="w-1/4">Download</div>
+            </div>
+            <template x-for="item in filteredItems()" key="item.title">
+                <div class="flex text-center justify-around p-4 report-table-style-cell items-center">
+
+                    <div class="w-1/4" x-text="formatDate(item.date)"></div>
+                    <div class="w-1/4">
+                        <div class="flex flex-col gap-2">
+                            <template x-for="term in item.terms.split('|')">
+                                <div>
+
+                                <span class="badge" x-text="term.trim()"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="w-1/2" x-text="item.title"></div>
+                    <a :href="'assets' + item.report_asset.url" target="_blank"
+                       class="inline-flex gap-2 w-1/4 justify-center"><span class="hidden lg:block">Download PDF</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                             stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/>
+                        </svg>
+                    </a>
+                </div>
+            </template>
+        </div>
+    </div>
+{{ /collection }}

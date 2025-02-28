@@ -1,0 +1,16 @@
+data:
+  alt: 'Anime Scene'
+  hero_title: 'Title 2'
+  hero_subheading:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Ex amet amet qui veniam in irure quis non deserunt est ex aliqua.'
+size: 10521241
+last_modified: 1738570188
+width: 5824
+height: 3264
+mime_type: image/png
+duration: null

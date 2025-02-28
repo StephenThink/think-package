@@ -1,0 +1,13 @@
+<div class="grid grid-cols-1 md:grid-cols-2 justify-center md:gap-4 two-columns-component">
+    <div class="flex flex-col gap-column-gap left-column-component">
+        {{ left_column }}
+            {{ partial src="sets/column/{type}" }}
+        {{ /left_column }}
+    </div>
+
+    <div class="pt-6 md:pt-0 flex flex-col gap-column-gap right-column-component" >
+        {{ right_column }}
+            {{ partial src="sets/column/{type}" }}
+        {{ /right_column }}
+    </div>
+</div>

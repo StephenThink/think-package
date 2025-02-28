@@ -1,0 +1,16 @@
+title: 'Mixed Images'
+disk: mixed-image
+allow_uploads: true
+allow_downloading: true
+allow_renaming: true
+allow_moving: true
+create_folders: true
+warm_presets:
+  - mixed-image-sm-webp
+  - mixed-image-md-webp
+  - mixed-image-lg-webp
+  - mixed-image-xl-webp
+  - mixed-image-2xl-webp
+  - mixed-image-3xl-webp
+  - mixed-image-4xl-webp
+  - mixed-image-4k-webp

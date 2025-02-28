@@ -1,0 +1,78 @@
+title: 'Site Admin'
+data:
+  show_cookie_dialog: false
+  test_mode: 'false'
+  message:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'We use cookies to measure the range of this website so we can easily see how many visitors are on our pages. This helps us a lot to further improve our services and adapt it more to your needs.'
+  cookie_accept_button_text: Accept
+  cookie_reject_button_text: Reject
+  cookie_accept_message:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Thank you for your support...'
+  cookie_reject_message:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Well, we have to deal with your decision...'
+  ga_active: true
+  google_analytics:
+    local: livega11
+    staging: stagega11
+    production: prodga11
+  by32: site/icons/32x32.jpg
+  by192: site/icons/192x192.jpg
+  apple_touch: site/icons/cropped-site-icon-2-192x192.png
+  footer_heading: "Let's keep in touch!"
+  footer_content:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Find us on any of these platforms, we respond 1-2 business days.'
+  footer_menus:
+    -
+      id: lxbty9cl
+      menu_title: 'Useful Links'
+      navs_field: main_nav
+      type: menu_column
+      enabled: true
+    -
+      id: lxbwm7lk
+      menu_title: 'Menu 2'
+      navs_field: main_nav
+      type: menu_column
+      enabled: true
+  site_by: 'Site By Think!Creative'
+  company_link: 'https://thinkcreative.uk'
+  copyright_year: 2024
+  theme_changer: true
+  transition_effect: none
+  search_active: true
+  search_placeholder: 'What are you looking for...'
+  search_no_results: 'Unfortunately, nothing has been found for'
+  search_page_content:
+    -
+      type: set
+      attrs:
+        id: m6ji9w76
+        values:
+          type: hero
+          hero_heading: 'Search Results'
+          hero_background_colour: bg-white
+          hero_image: search.jpeg
+  back_to_top: true
+  up_arrow: site/chevron-up-svgrepo-com.svg
+  has_training_mode: true
+  training_header_hero: training/training.png

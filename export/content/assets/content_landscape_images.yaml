@@ -1,0 +1,16 @@
+title: 'Content Landscape Images'
+disk: landscape-image
+allow_uploads: true
+allow_downloading: true
+allow_renaming: true
+allow_moving: true
+create_folders: true
+warm_presets:
+  - landscape-image-sm-webp
+  - landscape-image-md-webp
+  - landscape-image-lg-webp
+  - landscape-image-xl-webp
+  - landscape-image-2xl-webp
+  - landscape-image-3xl-webp
+  - landscape-image-4xl-webp
+  - landscape-image-4k-webp

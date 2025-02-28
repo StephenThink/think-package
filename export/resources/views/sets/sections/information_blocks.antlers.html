@@ -1,0 +1,59 @@
+<div class="container-inner mb-section-bottom" x-data="{selectedInformation: '{{ block.0.title }}'}" id="informationBlock">
+
+    {{ block }}
+
+    <div class="bg-button-background text-button-text dark:bg-button-background-dark dark:text-button-text-dark
+                font-light
+                inline-flex justify-between
+                px-4
+                w-full
+                text-2xl
+                py-2
+                mt-6
+                cursor-pointer"
+         @click="selectedInformation='{{ title }}'"
+         role="button"
+         aria-expanded="false"
+         :aria-expanded="selectedInformation === '{{ title }}'"
+         aria-controls="section-{{ title }}"
+         tabindex="0">
+        {{ title }}
+        <button x-show="selectedInformation === '{{ title }}'" aria-label="Collapse">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
+            </svg>
+        </button>
+         <button x-show="selectedInformation !== '{{ title }}'" aria-label="Expand">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+        </button>
+    </div>
+    <div class="bg-light-gray text-blue-text text-sm py-4 "
+         x-cloak
+         x-show="selectedInformation === '{{ title }}'"
+         x-collapse
+         id="section-{{ title }}"
+         role="region"
+         aria-hidden="true"
+         :aria-hidden="selectedInformation !== '{{ title }}'"
+    >
+        {{ inner_blocks }}
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="" id="informationBlockInnerText">{{ inner_text }}</div>
+                {{ if inner_asset }}
+                        <a
+                        href="{{ inner_asset }}" target="_blank"
+                        class="text-sm underline-offset-8 underline decoration-black inline-flex justify-end gap-2 items-center min-w-[150px] "
+                        aria-label="Download {{ link_label }}">
+                            {{ link_label }}
+                        {{  svg src="download" class="text-current w-6 h-6" sanitize="false"}}</a>
+{{#                     </div> #}}
+                {{ /if }}
+            </div>
+        {{ /inner_blocks }}
+
+
+    </div>
+    {{ /block }}
+</div>

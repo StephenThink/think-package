@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}" {{ partial:components.admin.theme.html_code }}>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ title ?? site:name }}</title>
+        <link rel="icon" href="{{ site_admin:by32 }}" sizes="32x32">
+        <link rel="icon" href="{{ site_admin:by192 }}" sizes="192x192">
+        <link rel="apple-touch-icon" href="{{ site_admin:apple_touch }}">
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        {{ stack:styles }}
+        {{ seo:head }}
+    </head>
+    <body class="bg-body-background font-poppins leading-normal text-gray-800 antialiased
+                {{ if environment != 'production' }}debug-screens{{ /if }}
+                "
+    data-barba="wrapper"
+    >
+    {{ seo:body }}
+    {{ partial:components.navigation.mainNav }}
+
+{{#         <div class="h-screen w-screen fixed bg-indigo-500 flex items-center justify-center z-cover-page" id="coverPage">Cover Page</div> #}}
+    <main class="min-h-screen" data-barba="container">
+        {{ template_content }}
+                {{ partial:components.backToTop.backToTop }}
+                {{ partial:components.footer.footer }}
+                </main>
+
+                {{ stack:scripts }}
+    </body>
+</html>

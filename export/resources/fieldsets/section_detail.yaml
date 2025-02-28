@@ -1,0 +1,43 @@
+title: Section
+fields:
+  -
+    handle: section_colour
+    field:
+      options:
+        bg-black: Black
+        bg-white: White
+        bg-gray-300: 'Light Gray'
+        bg-gray-900: 'Dark Gray'
+        bg-primary: Primary
+        bg-secondary: Secondary
+        bg-tertiary: Tertiary
+      default: bg-white
+      type: select
+      display: 'Section Colour'
+      instructions: 'This will set the colour of the Section that all the following components will sit in front of'
+  -
+    handle: top_padding
+    field:
+      options:
+        padding-top-none: None
+        padding-top-small: Small
+        padding-top-medium: Medium
+        padding-top-large: Large
+        padding-top-xlarge: XLarge
+      default: padding-top-small
+      type: button_group
+      display: 'Top Padding'
+      instructions: 'Would you like a gap at the top of the section?'
+  -
+    handle: bottom_padding
+    field:
+      options:
+        padding-bottom-none: None
+        padding-bottom-small: Small
+        padding-bottom-medium: Medium
+        padding-bottom-large: Large
+        padding-bottom-xlarge: XLarge
+      default: padding-bottom-medium
+      type: button_group
+      display: 'Bottom Padding'
+      instructions: 'Would you like a gap at the bottom of the section?'

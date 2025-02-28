@@ -1,0 +1,93 @@
+title: 'Team Member'
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: team_position
+            field:
+              type: text
+              display: 'Team Position'
+          -
+            handle: team_image
+            field:
+              max_files: 1
+              container: team_members
+              folder: /
+              restrict: true
+              type: assets
+              display: 'Team Image'
+          -
+            handle: social_links
+            field:
+              mode: keyed
+              keys:
+                -
+                  key: telephone
+                  value: Telephone
+                -
+                  key: email
+                  value: Email
+                -
+                  key: facebook
+                  value: Facebook
+                -
+                  key: Instagram
+                  value: Instagram
+                -
+                  key: pinterest
+                  value: Pinterest
+                -
+                  key: snapchat
+                  value: Snapchat
+                -
+                  key: telegram
+                  value: Telegram
+                -
+                  key: tiktok
+                  value: Tiktok
+                -
+                  key: twitch
+                  value: Twitch
+                -
+                  key: twitter
+                  value: Twitter
+                -
+                  key: whatsapp
+                  value: Whatsapp
+                -
+                  key: youtube
+                  value: Youtube
+                -
+                  key: zoom
+                  value: Zoom
+              display: 'Social Links'
+              type: array
+              always_save: false
+              instructions: "This will use the corresponding icon files located in **'/assets/social-icons'**. To change an icon, simply replace the corresponding SVG file in the **'social-icons'** folder."
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              localizable: true

@@ -1,0 +1,22 @@
+<div>
+    <ul class="w-full list-none flex flex-col gap-4" id="listContent" role="list">
+        {{ bulleted_items }}
+        <li class="flex gap-4 {{ icon_alignment }}" role="listitem">
+            <div
+                class="default-text-colours w-list-icon"
+                id="listIcon"
+                aria-hidden="true"
+            >
+                {{ list_icon }}
+            </div>
+            <div
+                class="default-text-colours w-list-content"
+                id="listText"
+                aria-label="{{ list_text }}"
+            >
+                {{ list_text }}
+            </div>
+        </li>
+        {{ /bulleted_items }}
+    </ul>
+</div>

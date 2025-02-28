@@ -1,0 +1,44 @@
+<div
+    class="lg:flex flex-grow items-center bg-transparent shadow-none hidden"
+>
+          <ul class="flex list-none divide-x-2 divide-gray-200 mx-auto ">
+              {{ nav:main_nav include_home="true" }}
+                  {{ if children }}
+                      <div x-data="dropdown"
+                           @click="toggle()"
+                           @click.outside="close"
+{{#                            @mouseenter="open" #}}
+{{#                            @mouseleave="close" #}}
+                           class="navbar-link px-3 py-2 items-center  inline-flex gap-2 group">
+                          <div class="relative cursor-pointer">
+                              <!-- Parent to the Children Links -->
+                              <div class="navbar-link">{{ title }}</div>
+                              <div x-cloak x-show="state"
+                                   class="navbar-dropdown-menu"
+                                   x-transition:enter="transition ease-out duration-100 origin-top"
+                                   x-transition:enter-start="opacity-0 transform scale-y-50 -translate-y-5"
+                                   x-transition:enter-end="opacity-100 transform scale-y-100 translate-y-0"
+                                   x-transition:leave="transition ease-in duration-75 origin-top"
+                                   x-transition:leave-start="opacity-100 transform scale-y-100 translate-y-0"
+                                   x-transition:leave-end="opacity-0 transform scale-y-50 -translate-y-5"
+                                   role="menu"
+                                   aria-hidden="{{ ! state }}"
+                              >
+                                  <ul class="flex flex-col bg-navbar-background dark:bg-navbar-background-dark h-auto">
+                                      {{ children }}
+                                        {{ partial:components.navigation.desktop.children_list }}
+                                      {{ /children }}
+                                  </ul>
+                              </div>
+                          </div>
+                          {{ svg src="down.svg" sanitize="false" }}
+                      </div>
+                  {{ else }}
+                      {{ partial:components.navigation.desktop.top_link }}
+                  {{ /if }}
+              {{ /nav:main_nav }}
+          </ul>
+    {{ partial:components.admin.theme.buttons }}
+    {{ partial:components.navigation.desktop.searchbar }}
+
+</div>

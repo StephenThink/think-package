@@ -1,0 +1,20 @@
+<div class="flex flex-wrap items-center md:justify-between justify-center relative">
+    <div class="w-full md:w-6/12 px-4 mx-auto text-center" id="siteAdmin">
+        <div class="text-sm text-gray-600 font-semibold py-1">
+            {{ if copyright_year }}Copyright ©{{ copyright_year }}, {{ /if }}
+
+            <a
+              href="{{company_link}}"
+              class="text-gray-600 hover:text-gray-900"
+            >
+                {{site_by}}
+            </a>
+        </div>
+
+        {{ partial:components.admin.cookie_dialog }}
+
+    </div>
+
+
+
+</div>

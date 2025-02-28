@@ -1,0 +1,31 @@
+<section class="mb-section-bottom md:pt-16 overflow-hidden">
+    <div class="container-inner" id="unevenStackSection">
+        <div class="flex flex-wrap justify-center">
+            {{ stacks }}
+            <div class="{{ stack_location }} w-full md:w-4/12 2xl:max-w-[25%] px-4 text-center">
+                <!-- Added role="article" for better screen reader navigation -->
+                <article class="relative flex flex-col min-w-0 break-words w-full mb-column-gap shadow-lg rounded-lg bg-white outline-0 hover:outline-2 hover:outline-primary hover:dark:outline-primary-dark
+        /*transition-outline */
+        duration-75 ease-in-out hover:outline-offset-2"
+                         id="unevenStackBox"
+                         role="article"
+                         aria-labelledby="unEvenStackBoxTitle">
+                    <div class="px-4 py-5 flex-auto">
+                        {{ if stack_icon }}
+                            <!-- Improved accessibility with aria-hidden for decorative elements -->
+                            <div class="default-bg-colours p-2 inline-flex items-center justify-center mb-2 rounded-full"
+                                 id="unEvenStackBoxIcon"
+                                 aria-hidden="true">
+                                <div class="default-text-colours size-6">{{ stack_icon }}</div>
+                            </div>
+                        {{ /if }}
+                        <!-- Used <h2> instead of <h3> for better hierarchy and accessibility -->
+                        <h2 class="{{ title_colour }} text-xl font-semibold" id="unEvenStackBoxTitle">{{ stack_title }}</h2>
+                        <div class="{{ content_colour }} mt-2 mb-4" id="unEvenStackBoxContent">{{ stack_content }}</div>
+                    </div>
+                </article>
+            </div>
+            {{ /stacks }}
+        </div>
+    </div>
+</section>

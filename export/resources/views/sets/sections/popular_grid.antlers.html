@@ -1,0 +1,35 @@
+<section class="mb-section-bottom">
+{{? $popBoxCount = count($pop_grid->value()) ?}}
+    <div class="grid grid-cols-1
+            {{ if $popBoxCount === 2 }}
+                md:grid-cols-2
+            {{ else }}
+                md:grid-cols-1
+            {{ /if }}
+
+            {{ if $popBoxCount === 3 }}
+                md:grid-cols-1
+                lg:grid-cols-3
+            {{ /if }}
+    popular-grid gap-2" >
+        {{pop_grid}}
+            <div class="relative w-full text-center pb-4 rounded-2xl {{ is_popular ? 'is-popular' : 'not-popular' }} overflow-hidden flex flex-col popular-cell">
+                {{ if is_popular }}
+                    <div class="absolute top-0 left-0 w-full h-8 bg-transparent font-bold text-white text-xl">
+                        <div class="uppercase">Popular</div>
+                    </div>
+                {{ /if }}
+
+                <h3 class="text-xl {{ is_popular ? 'pt-12' : 'pt-6' }} pb-4 font-bold bg-pink-500 rounded-t-2xl" id="boxTitle">{{ pop_title }}</h3>
+                <div class="px-4 text-left popContent flex-grow">
+                    {{pop_content | widont}}
+                </div>
+                {{ if pop_button_link }}
+                    <div>
+                        {{ partial:components.page.button button_label="{pop_button_label}" :button_link="pop_button_link" button_style="{pop_button_style}" button_description="{pop_button_description}" }}
+                    </div>
+                {{ /if }}
+            </div>
+        {{/pop_grid}}
+    </div>
+</section>

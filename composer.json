@@ -1,0 +1,24 @@
+{
+    "name": "stephenThink/think-package",
+    "extra": {
+        "statamic": {
+            "name": "Think Package",
+            "description": "Think Package to give me a head start in building sites."
+        },
+        "laravel": {
+            "providers": [
+                "StephenThink\\ThinkPackage\\ServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "StephenThink\\ThinkPackage\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}

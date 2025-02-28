@@ -1,0 +1,51 @@
+<div class="flex items-center justify-center h-screen w-full bg-linear-to-r from-primary to-primary/70 dark:from-primary-dark dark:to-primary-dark/70">
+    <div class="bg-gray-100 p-4 rounded-xl shadow-2xl w-full max-w-lg">
+
+        <div class="flex flex-col prose">
+            {{ svg src="{client:logo}" class="mb-4" }}
+            <h1 id="login-heading" class="text-center py-5">Sign in</h1>
+
+        </div>
+        {{ user:login_form redirect="{current_url}" }}
+
+            {{ if !success }}
+                <div class="flex flex-col">
+                    {{ if errors }}
+                        <div class="bg-red-800 text-white p-2 rounded-md not-prose" role="alert" aria-live="assertive">
+                            <ul>
+                                {{ errors }}
+                                <li>{{ value }}</li>
+                                {{ /errors }}
+                            </ul>
+                        </div>
+                    {{ /if }}
+
+                    <div class="pb-4">
+                        <label for="email" class="block uppercase text-gray-700 text-base font-bold mb-2">
+                            Email
+                        </label>
+                        <input id="email" type="email" name="email" value="{{ old:email }}"
+                               class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                               aria-required="true" aria-describedby="email-desc" />
+                        <span id="email-desc" class="sr-only">Enter your email address</span>
+                    </div>
+
+                    <div class="pb-4">
+                        <label for="password" class="block uppercase text-gray-700 text-base font-bold mb-2">
+                            Password
+                        </label>
+                        <input id="password" type="password" name="password"
+                               class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                               aria-required="true" aria-describedby="password-desc" />
+                        <span id="password-desc" class="sr-only">Enter your password</span>
+                    </div>
+
+                    <button type="submit" class="max-w-sm mx-auto button-primary" aria-label="Log in to your account">
+                        Log in
+                    </button>
+                </div>
+            {{ /if }}
+
+        {{ /user:login_form }}
+    </div>
+</div>

@@ -1,0 +1,9 @@
+title: 'Content Videos'
+disk: content-video
+allow_uploads: true
+allow_downloading: true
+allow_renaming: true
+allow_moving: true
+create_folders: true
+warm_presets:
+  - content-video-posters

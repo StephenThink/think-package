@@ -1,0 +1,14 @@
+{{ if segment_1 != 'training' }}
+{{ site_admin }}
+<footer class="relative py-4 bg-primary">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap">
+            {{ partial:components.footer.left }}
+            {{ partial:components.footer.right }}
+        </div>
+    <hr class="my-6 border-gray-400" />
+    {{ partial:components.footer.bottom }}
+    </div>
+</footer>
+{{ /site_admin }}
+{{ /if }}

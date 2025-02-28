@@ -1,0 +1,22 @@
+updatable: true
+export_paths:
+  - app/Logging/LaravelMailHandler.php
+  - app/Scopes
+  - app/Widgets
+  - config/statamic/assets.php
+  - config/statamic/bard-color-picker.php
+  - config/statamic/search.php
+  - config/advanced-seo.php
+  - config/filesystems.php
+  - config/logging.php
+  - config/
+  - content
+  - resources
+  - public
+  - package.json
+  - postcss.config.js
+  - .env.example
+dependencies:
+  aerni/advanced-seo: ^2.10
+  ndx/statamic-bard-color-picker: ^2.0
+  teamnovu/statamic-images-missing-alt: ^1.0

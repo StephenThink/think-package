@@ -1,0 +1,74 @@
+{{ collection :from="which_collection" :taxonomy:report_type="filter_terms" as="reports" }}
+<div class="container-inner mt-12 reports" x-data='report_yearly({{reports|to_json}})'>
+
+    <!-- Mobile Dropdown -->
+    <div class="lg:hidden relative" x-cloak x-show="years.length > 2">
+        <!-- Trigger button -->
+        <button @click="toggle" class="dropdown-button">
+            Select Year
+            <svg :class="{ 'transform rotate-180': dropdown }"
+                 class="h-4 w-4 inline-block ml-2" viewBox="0 0 20 20"
+                 fill="currentColor">
+                <path fill-rule="evenodd"
+                      d="M10 13a1 1 0 0 1-.707-.293l-5-5a1 1 0 1 1 1.414-1.414L10 10.586l4.293-4.293a1 1 0 1 1 1.414 1.414l-5 5A1 1 0 0 1 10 13z"/>
+            </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div x-show="dropdown" @click.away="close()"
+             class="dropdown-menu">
+            <template x-for="year in years" key="year">
+                <div x-text="yearLabel(year)" @click="selectYear(year); close()"
+                     :class="{ 'dropdown-item-selected': selectedYear === year }"
+                     class="cursor-pointer dropdown-item px-4 py-2 ">
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <!-- Desktop Grid -->
+<div class="hidden lg:grid grid-cols-6 2xl:grid-cols-8 gap-5 py-6 items-center" x-cloak x-show="years.length > 2">
+    <template x-for="year in years" key="year">
+        <div x-text="yearLabel(year)"
+             class="cursor-pointer flex justify-center items-center dropdown-item px-4 py-6 w-full"
+             :class="{ 'dropdown-item-selected': selectedYear === year }"
+             @click="selectYear(year)">
+        </div>
+    </template>
+</div>
+
+    <div class="flex flex-col  report-table-style">
+        <h3 class="px-4 py-3 text-lg font-bold" x-show="selectedYear || years.length <= 2" x-cloak>
+            Year: <span x-text="selectedYear"></span>
+        </h3>
+        <template x-for="item in paginatedItems()" key="item.title">
+            <div class="flex justify-between p-4 report-table-style-cell transition-colors duration-300ms ease-in-out">
+                <div class="flex-grow" x-text="item.title"></div>
+                <a :href="'assets' + item.report_asset.url" target="_blank" class="inline-flex gap-2"><span class="hidden lg:block">Download PDF</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                    </svg>
+                </a>
+            </div>
+        </template>
+        <!-- Pagination Controls -->
+
+        <div class="flex justify-between p-4 items-center" x-show="items.length > 10">
+            <button @click="prevPage" :disabled="currentPage === 1" class="px-4 py-2 bg-gray-300 disabled:opacity-50 w-2/12">
+                Previous
+            </button>
+            <span x-text="'Page ' + currentPage + ' of ' + totalPages()"></span>
+            <div class="flex justify-end p-4 items-center">
+                <label for="itemsPerPage" class="mr-2">Items per page:</label>
+                <select id="itemsPerPage" @change="updateItemsPerPage" class="border px-2 py-1">
+                    <template x-for="size in availablePageSizes" :key="size">
+                        <option x-text="size" :value="size" :selected="size === itemsPerPage"></option>
+                    </template>
+                </select>
+            </div>
+            <button @click="nextPage" :disabled="currentPage >= totalPages()" class="px-4 py-2 bg-gray-300 disabled:opacity-50 w-2/12">
+                Next
+            </button>
+        </div>
+    </div>
+</div>
+   {{ /collection }}

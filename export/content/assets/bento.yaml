@@ -1,0 +1,6 @@
+title: Bento
+disk: bento-image
+allow_uploads: true
+create_folders: true
+warm_presets:
+  - hero-lg-webp

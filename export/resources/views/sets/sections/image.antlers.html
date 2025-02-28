@@ -1,0 +1,21 @@
+<div class="flex justify-center overflow-hidden">
+    <img
+        srcset="
+            {{ glide:full_image preset='full-image-4k-webp'  }} 2560w,
+            {{ glide:full_image preset='full-image-4xl-webp' }} 1920w,
+            {{ glide:full_image preset='full-image-3xl-webp'  }} 1750w,
+            {{ glide:full_image preset='full-image-2xl-webp'  }} 1360w,
+            {{ glide:full_image preset='full-image-xl-webp'  }} 1140w,
+            {{ glide:full_image preset='full-image-lg-webp'  }} 980w,
+            {{ glide:full_image preset='full-image-md-webp'  }} 740w,
+            {{ glide:full_image preset='full-image-sm-webp'  }} 360w
+    "
+        src="{{ glide:full_image preset="full-image-4k-webp" }}"
+        class="w-full object-contain fullImage"
+        alt="{{ full_image:alt }}"
+        width="{{ full_image.width }}"
+        height="{{ full_image.height }}"
+        loading="lazy"
+        aria-description="{{ full_image:alt }}"
+    />
+</div>

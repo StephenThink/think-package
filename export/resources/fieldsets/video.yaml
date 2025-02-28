@@ -1,0 +1,234 @@
+title: Video
+fields:
+  -
+    handle: top_padding
+    field:
+      options:
+        padding-top-none: None
+        padding-top-small: Small
+        padding-top-medium: Medium
+        padding-top-large: Large
+        padding-top-xlarge: XLarge
+      default: padding-top-medium
+      type: button_group
+      display: 'Top Padding'
+      instructions: 'Would you like a gap at the top of the video?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: bottom_padding
+    field:
+      options:
+        padding-bottom-none: None
+        padding-bottom-small: Small
+        padding-bottom-medium: Medium
+        padding-bottom-large: Large
+        padding-bottom-xlarge: XLarge
+      default: padding-bottom-xlarge
+      type: button_group
+      display: 'Bottom Padding'
+      instructions: 'Would you like a gap at the bottom of the video?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: video_files
+    field:
+      min_files: 1
+      mode: list
+      container: content_videos
+      folder: /
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: Video
+      instructions: "Put the one you want to load first normally the 'webm' file."
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: video_description
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Video Description'
+      instructions: 'This is for screen-readers, sighted users wont see this.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      validate:
+        - required
+  -
+    handle: poster_image
+    field:
+      max_files: 1
+      mode: list
+      container: content_videos
+      folder: poster
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Poster Image'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      instructions: 'This will be displayed on top of the video and is required by search engines.'
+  -
+    handle: show_additional_options
+    field:
+      mode: button
+      input_label: 'Reveal Extra Options...'
+      type: revealer
+      display: 'Show Additional Options'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: additional_options
+    field:
+      type: section
+      display: 'Additional Options'
+      instructions: 'How do you want the video to behave?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: muted
+    field:
+      default: true
+      type: toggle
+      display: Muted
+      instructions: 'The video will play with no sound, this has to be on for Autoplay to work!'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: looped
+    field:
+      default: true
+      type: toggle
+      display: Loop
+      instructions: 'Would you like the video to be repeated?'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: autoplay
+    field:
+      default: true
+      type: toggle
+      display: Autoplay
+      instructions: "Would you like the video to play automatically? If this is 'On' then the poster image is not displayed."
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: controls
+    field:
+      default: false
+      type: toggle
+      display: Controls
+      instructions: 'Would you like to display controls for the user to interact with?'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: preload_video
+    field:
+      options:
+        auto: 'Load everything (Recommended)'
+        metadata: 'Load Metadata (Select if you video is large and slows down site appearance)'
+        none: 'Load nothing (Not recommended)'
+      taggable: false
+      push_tags: false
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      cast_booleans: false
+      default: auto
+      type: select
+      display: 'Preload Video'
+      instructions: 'Gives you options how you want the video to be loaded in the browser.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+      if:
+        show_additional_options: 'equals true'
+  -
+    handle: video_effects
+    field:
+      options:
+        sepia: Sepia
+        invert: Invert
+        grayscale: Grayscale
+        brightness-50: 'Little darker'
+        blur: Blur
+      taggable: false
+      push_tags: false
+      multiple: false
+      max_items: 1
+      clearable: true
+      searchable: true
+      cast_booleans: false
+      type: select
+      display: 'Video Effects'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      instructions: 'You can change how the video looks to the end users.'
+      always_save: true
+      if:
+        show_additional_options: 'equals true'

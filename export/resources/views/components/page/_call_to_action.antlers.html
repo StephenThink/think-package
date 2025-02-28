@@ -1,0 +1,13 @@
+<section class="py-8 relative block {{ section_colour }} w-full {{ cta_width }} mx-auto" id="{{id}}">
+    <div class="container mx-auto px-10">
+        <div class="flex flex-wrap justify-center">
+            <div class="w-full lg:w-10/12" id="ctaContent">
+                {{ if cta_content }}
+                    {{ cta_content }}
+                        {{ partial src="sets/call_to_action/{type}" }}
+                    {{ /cta_content }}
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+</section>

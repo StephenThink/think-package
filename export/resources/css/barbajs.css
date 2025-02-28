@@ -1,0 +1,25 @@
+.barba-leave-active,
+.barba-enter-active {
+    transition: opacity 100ms ease;
+}
+
+.barba-leave,
+.barba-enter-to {
+    opacity: 1;
+}
+
+.barba-enter,
+.barba-leave-to {
+    opacity: 0;
+}
+
+.barba-once {
+    opacity: 1;
+}
+
+/*.hello-once-active {*/
+/*}*/
+
+.hello-once-to {
+    opacity: 0;
+}

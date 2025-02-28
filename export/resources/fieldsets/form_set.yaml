@@ -1,0 +1,53 @@
+title: 'Form Set'
+fields:
+  -
+    handle: form_title
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - removeformat
+        - color
+      type: bard
+      display: 'Form Title'
+  -
+    handle: form_content
+    field:
+      buttons:
+        - bold
+        - italic
+        - removeformat
+        - color
+        - unorderedlist
+        - orderedlist
+        - anchor
+      type: bard
+      display: 'Form Content'
+  -
+    handle: type_of_form
+    field:
+      type: form
+      max_items: 1
+      display: 'Type of Form'
+      mode: select
+  -
+    handle: success_message
+    field:
+      buttons:
+        - bold
+        - italic
+        - removeformat
+        - color
+        - unorderedlist
+        - orderedlist
+        - anchor
+      type: bard
+      display: 'Success Message'
+  -
+    handle: submit_text
+    field:
+      default: Submit
+      type: text
+      display: 'Submit Text'

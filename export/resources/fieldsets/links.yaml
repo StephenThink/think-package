@@ -1,0 +1,13 @@
+title: Links
+fields:
+  -
+    handle: link_field
+    field:
+      type: link
+      display: 'Link Field'
+  -
+    handle: text_field
+    field:
+      default: 'More info ...'
+      type: text
+      display: 'Text Field'

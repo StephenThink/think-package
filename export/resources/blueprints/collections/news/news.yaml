@@ -1,0 +1,118 @@
+title: News
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: content
+            field:
+              type: markdown
+              display: Content
+              localizable: true
+          -
+            handle: thumbnail
+            field:
+              max_files: 1
+              min_files: 1
+              mode: list
+              container: news_thumbnail
+              folder: /
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: Thumbnail
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+      -
+        display: 'Page Content'
+        instructions: 'Whats the news?'
+        fields:
+          -
+            import: page_content
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+      -
+        display: Additionals
+        instructions: 'These are optional features.'
+        fields:
+          -
+            handle: show_author
+            field:
+              inline_label_when_true: 'Author Shown'
+              default: true
+              type: toggle
+              display: 'Show Author'
+              instructions: 'Do you want to show or hide the author?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              default: current
+              localizable: true
+              max_items: 1
+          -
+            handle: searchable
+            field:
+              inline_label_when_true: 'Will appear in the search list.'
+              default: true
+              type: toggle
+              display: Searchable
+              instructions: 'Can this be searched for?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+      -
+        display: Keywords
+        instructions: 'This is used in the search'
+        fields:
+          -
+            handle: keywords
+            field:
+              type: list
+              display: Keywords
+              instructions: 'This is used in the internal search.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+

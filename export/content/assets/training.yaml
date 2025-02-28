@@ -1,0 +1,6 @@
+title: Training
+disk: think-creative
+allow_uploads: true
+create_folders: true
+warm_presets:
+  - mixed-image-webp

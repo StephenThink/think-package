@@ -1,0 +1,6 @@
+{{ partial:components.page.scroll_progression }}
+<section id="{{ customId ?? 'pageContent' }}" class="{{ classes }}">
+    {{ if page_content }}
+        {{ page_content }} {{ partial src="sets/page/{type}" }} {{ /page_content }}
+    {{ /if }}
+</section>

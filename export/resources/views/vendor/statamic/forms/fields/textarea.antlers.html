@@ -1,0 +1,17 @@
+<div class="relative w-full mb-3">
+    <label class="block uppercase text-gray-700 text-xs font-bold mb-2">{{ display }}</label>
+    <textarea
+        class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+        name="{{ handle }}"
+        rows="5"
+        {{ if placeholder }}placeholder="{{ placeholder }}"{{ /if }}
+        {{ if character_limit }}maxlength="{{ character_limit }}"{{ /if }}
+        {{ if js_driver }}{{ js_attributes }}{{ /if }}
+        {{ if validate|contains:required }}required{{ /if }}
+    >
+        {{ value }}
+    </textarea>
+    {{ if error }}
+        <p class="text-gray-500">{{ error }}</p>
+    {{ /if }}
+</div>

@@ -1,0 +1,34 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: image_title
+            field:
+              type: text
+              display: 'Image Title'
+          -
+            handle: alt
+            field:
+              type: text
+              display: 'Alt Text'
+              instructions: 'Description of the image'
+          -
+            handle: image_content
+            field:
+              buttons:
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - removeformat
+                - quote
+                - anchor
+                - color
+              type: bard
+              display: 'Image Content'
+          -
+            import: links
+            prefix: image_

@@ -1,0 +1,32 @@
+<section class="@container mx-auto px-4 relative block {{ section_colour }} {{ top_padding }} {{ bottom_padding }}" id="sectionComponent">
+    <div class="container-inner">
+        {{ if news_heading }}
+            <div class="pb-4" id="collectionContent" id="#subHeading">{{ news_heading }}</div>
+        {{ /if }}
+        {{? $newsColumns = $news_limit->value() ?}}
+
+        <div class="grid grid-cols-2
+        {{ if $newsColumns === 2 }}
+            md:grid-cols-2
+        {{ else }}
+            md:grid-cols-1
+        {{ /if }}
+
+        {{ if $newsColumns === 3 }}
+            md:grid-cols-3
+
+        {{ /if }}
+        justify-center gap-2 md:gap-4 {{ !news_heading ?= 'py-4' }}" id="collectionGrid">
+            {{ if news_updated === 'latest' }}
+                {{ collection :from="news_collection" :limit="news_limit" sort="date:desc" }}
+                    {{ partial:news/card  }}
+                {{ /collection }}
+            {{ else }}
+                {{ news_entries }}
+                    {{ partial:news/card  }}
+                {{ /news_entries }}
+            {{ /if }}
+        </div>
+    </div>
+
+</section>

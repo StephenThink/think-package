@@ -1,0 +1,35 @@
+title: Button
+fields:
+  -
+    handle: button_label
+    field:
+      default: 'Click me'
+      type: text
+      display: 'Button Label'
+  -
+    handle: button_link
+    field:
+      type: link
+      display: 'Button Link'
+      instructions: 'Where does the button take you to?'
+      width: 50
+  -
+    handle: button_style
+    field:
+      options:
+        button-primary: Primary
+        button-secondary: Secondary
+        button-tertiary: Tertiary
+      max_items: 1
+      default: button-primary
+      type: select
+      display: 'Button Style'
+      instructions: 'How do you want the Button to look?'
+      width: 50
+  -
+    handle: button_description
+    field:
+      default: 'Click me'
+      type: text
+      display: 'Button Description'
+      instructions: 'This is for accessibility purposes to help people who use screen readers.'

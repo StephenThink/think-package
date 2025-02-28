@@ -1,0 +1,22 @@
+.bentoIntro{
+    @apply max-w-none
+    prose lg:prose-lg
+    prose-h2:mt-2
+    prose-li:my-2
+    prose-p:my-2;
+}
+
+.bento-cell {
+    @apply rounded-3xl bg-gray-300/50
+    /*flex*/
+    /*justify-center items-center*/
+    overflow-hidden
+}
+
+.bento-cell:has(img) {
+    background-color: var(--color-body-background); /* Matches the body's background color */
+}
+
+.bento-content {
+    @apply p-2
+}

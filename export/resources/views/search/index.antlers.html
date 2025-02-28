@@ -1,0 +1,58 @@
+{{ site_admin }}
+{{ if search_page_content }}
+    {{ partial:components.page.page_content :page_content="search_page_content" classes="mb-4" }}
+{{ /if }}
+
+<section class="container mx-auto">
+
+    <div class="container flex flex-wrap space-x-2">
+        {{ search:results index="all_pages" as="pageResults" }}
+            {{ if pageResults }}
+                <div class=" py-2">
+                    <h2 class="font-bold">Pages</h2>
+                    <div class="w-full flex flex-wrap gap-2 py-4">
+                        {{ pageResults }}
+                            <a href="{{ url }}" role="button" class="bg-primary text-black rounded-2xl ">{{ title }}</a>
+
+                        {{ /pageResults }}
+                    </div>
+
+                </div>
+            {{ /if }}
+        {{ /search:results }}
+
+
+        {{ search:results index="news" query_scope="searchable_news_posts" as="newsResults" }}
+            {{ if newsResults }}
+                <div class=" py-2">
+                    <h2 class="font-bold">Blog / News</h2>
+                    <div class="w-full flex flex-wrap gap-2 py-4">
+                        {{ newsResults }}
+                            <a href="{{ url }}" role="button" class="bg-primary text-black rounded-2xl ">{{ title }}</a>
+
+                        {{ /newsResults }}
+                    </div>
+
+                </div>
+            {{ /if }}
+        {{ /search:results }}
+
+    </div>
+    {{ search:results }}
+        {{ if no_results }}
+            <div class="container mb-4">
+                <div
+                    class="flex w-full flex-col space-y-2 items-center justify-center rounded-xl bg-gray-200 text-sm text-black shadow-lg md:text-base p-4">
+                    <p>{{ search_no_results }} <span class="font-bold italic">{{ get.q }}</span>.</p>
+                    <p>Would you like to try again?</p>
+                    <div class="w-full md:w-3/4">
+                        {{ partial:search/search_again }}
+                    </div>
+                </div>
+            </div>
+        {{ /if }}
+    {{ /search:results }}
+</section>
+
+
+{{ /site_admin }}

@@ -1,0 +1,31 @@
+<header>
+    <nav
+        class="top-0 fixed z-main-nav w-full flex flex-wrap items-center justify-between px-2 py-3 bg-navbar-background dark:bg-navbar-background-dark"
+        id="mainNav"
+        x-data="navBar"
+        x-init="init"
+        @click.away="closeNav()"
+        @keydown.escape.window="closeNav()"
+    >
+      <div
+          class="px-4 w-full flex flex-wrap items-center justify-around"
+          id="navLinks"
+      >
+        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+          <a href="/"
+             class="text-md font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-nav-link-text dark:text-nav-link-text-dark"
+             aria-label="This will take you to the homepage."
+          >
+              {{ client:name }}
+          </a>
+
+
+
+            {{ partial:components.navigation.hamburger }}
+
+        </div>
+          {{ partial:components.navigation.desktop }}
+          {{ partial:components.navigation.mobile }}
+      </div>
+    </nav>
+</header>

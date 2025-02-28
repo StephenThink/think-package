@@ -1,0 +1,18 @@
+<section class="mb-section-bottom" x-data="horizontal_scroller">
+    <div class="scroller" data-speed="{{hsb_speed}}" data-direction="{{ if !hsb_direction }}right{{ else }}left{{ /if }}">
+
+        <div class="scroller__inner">
+        {{hsb_boxes}}
+        <div class="text-center shadow-lg rounded-lg box flex flex-col justify-center items-center border border-gray-200">
+            <div class="" id="boxContent">
+                {{hsb_content | widont}}
+            </div>
+
+            {{ if hsb_button_link }}
+                {{ partial:components.page.button button_label="{hsb_button_label}" :button_link="hsb_button_link" button_style="{hsb_button_style}" button_description="{hsb_button_description}" }}
+            {{ /if }}
+        </div>
+        {{/hsb_boxes}}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+<div id="mobileNav" class="fixed right-0 left-0 top-16 z-mobile-nav overflow-hidden bg-navbar-background dark:bg-navbar-background-dark rounded-b-2xl lg:hidden isolate"
+     x-show="isNavBarOpen" x-cloak
+     role="navigation"
+     aria-label="Mobile Navigation"
+>
+
+    <div
+        class="flex flex-col justify-between items-center bg-transparent shadow-none pb-6 px-2"
+    >
+        {{ partial:components.navigation.mobile.searchbar }}
+          <!-- Mobile navigation list -->
+          <ul class="flex flex-col list-none w-full  overflow-y-auto mt-4">
+              {{ nav:main_nav include_home="true" }}
+                  {{ if children }}
+                      <!-- Dropdown menu -->
+                      <div
+                          x-data="dropdown"
+                      >
+                          {{ partial:components.navigation.mobile.parent_link }}
+
+                          <!-- Dropdown menu items -->
+                          {{ partial:components.navigation.mobile.children }}
+
+                      </div>
+                  {{ else }}
+                      <!-- Regular menu item -->
+                            {{ partial:components.navigation.mobile.top_link }}
+                  {{ /if }}
+              {{ /nav:main_nav }}
+          </ul>
+
+        <!-- Bottom fixed navigation -->
+        <div class="w-full bg-navbar-background dark:bg-navbar-background-dark z-main-nav">
+
+            {{ main_nav_right }}
+            {{ if menu_items|count > 0 }}
+                <div class="container">
+                <ul class="flex list-none  w-full justify-between flex-wrap">
+                    {{ menu_items }}
+                        <!-- Individual menu item -->
+                        {{ partial:components.navigation.mobile.extra_link }}
+                    {{ /menu_items }}
+                    </ul>
+            </div>
+            {{ /if }}
+            {{ /main_nav_right }}
+        </div>
+        {{ partial:components.admin.theme.buttons }}
+
+    </div>
+</div>

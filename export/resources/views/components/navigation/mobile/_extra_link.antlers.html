@@ -1,0 +1,18 @@
+<li class="flex items-center group">
+                      <a
+                          class="text-white px-3 py-4 flex items-center uppercase font-bold"
+                          href="{{item_link}}"
+                          @click="closeNav()"
+                          role="menuitem"
+                          aria-label="This will take you to the {{ item_text }} link."
+                      >
+                          {{ if display_what != 'text' }}
+                              <!-- Menu item icon -->
+                              <svg class="hidden lg:block lg:text-white text-gray-500 lg:group-hover:text-gray-300 w-5 h-5 mr-2">{{ item_icon }}</svg>
+                          {{ /if }}
+                          {{ if display_what != 'icon' }}
+                              <!-- Menu item text -->
+                              <span class="inline-block">{{ item_text }}</span>
+                          {{ /if }}
+                      </a>
+                  </li>

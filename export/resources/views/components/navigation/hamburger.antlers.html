@@ -1,0 +1,25 @@
+<button
+    class="cursor-pointer text-xl text-nav-link-text dark:text-nav-link-text-dark leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+    type="button"
+    @click="toggleNav(); $refs.hamburgerButton.setAttribute('data-state-type', isNavBarOpen ? 'open' : 'closed')"
+    data-state-type="closed"
+    x-ref="hamburgerButton"
+    role="button"
+    id="hamburger"
+    aria-label="Toggle Mobile Navigation"
+    aria-expanded="{{ mobileNavOpen }}"
+    aria-controls="mobileNav"
+>
+           <svg x-cloak x-show="!isNavBarOpen" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21" aria-label="Hamburger" aria-hidden="true" class="transition duration-500">
+    <title>Hamburger</title>
+    <g fill="currentColor" transform="scale(.875)">
+        <rect x=".5" y="2.5" width="23" height="3" rx="1"/>
+        <rect x=".5" y="10.5" width="23" height="3" rx="1"/>
+        <rect x=".5" y="18.5" width="23" height="3" rx="1"/>
+    </g>
+</svg>
+<svg x-cloak x-show="isNavBarOpen" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21" aria-label="Hamburger" aria-hidden="true" class="transition duration-500">
+    <title>Hamburger</title>
+    <g transform="scale(.875)"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M.75 23.249l22.5-22.5M23.25 23.249L.75.749"/></g>
+</svg>
+          </button>

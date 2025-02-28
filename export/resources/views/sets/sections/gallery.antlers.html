@@ -1,0 +1,88 @@
+{{ mortar_images as="cement" }}
+<div class="container-inner" x-data="brick_gallery">
+    <div class="masonry-wrapper" role="list">
+        {{ cement }}
+        <div class="masonry-item cursor-pointer relative pointer-events-none md:pointer-events-auto group " role="listitem">
+            <img src="{{ glide:url preset='gallery-image' }}"
+                 class="rounded-2xl hover:rounded-lg transition duration-200 transform hover:scale-105"
+                 alt="{{ alt }}"
+                 loading="lazy"
+                 @mouseenter="hover('{{ glide:url preset='gallery-full' }}', '{{ alt }}', '{{ image_title }}', '{{ image_content }}', '{{ image_link_field }}')"
+                 @click="appear"
+                 aria-describedby="image-info-{{ loop.index }}"     />
+
+            {{ if show_information !== 'no' && (image_title !== null || image_content !== null) }}
+                <div id="image-info-{{ loop.index }}" class="md:hidden absolute bottom-[16px] w-full p-2 mb-1 round flex items-center rounded-b-2xl
+                {{ if show_information === 'yes' }}
+                    bg-black/40 text-white
+                {{ elseif show_information === 'hover' }}
+                    group-hover:bg-black/40 group-hover:text-white transition-all duration-200 ease-in-out text-transparent
+                {{ /if }}
+            ">
+                <div class="flex flex-1 flex-col">
+                    <h3 class="font-bold inline-flex mb-2 items-center">{{ image_title }} {{  if image_link_field }}
+                        - <a href="{{ image_link_field }}" target="_blank" class="pointer-events-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                 stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                            </svg>
+                        </a>
+                    {{ /if }}</h3>
+                    {{ image_content }}
+                </div>
+            </div>
+            {{ /if }}
+        </div>
+        {{ /cement }}
+    </div>
+
+    <div
+        class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black/50"
+        x-show="open" x-cloak
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+    >
+    <!-- Modal inner -->
+        <div @click.outside="close"
+             class="mx-auto max-w-4xl rounded-sm bg-white px-6 py-4 text-left shadow-lg"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-90"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-300"
+             x-transition:leave-start="opacity-100 scale-100"
+             x-transition:leave-end="opacity-0 scale-90"
+             x-show="open" x-cloak
+             role="dialog"
+             aria-labelledby="modal-title"
+             aria-describedby="modal-description"
+        >
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                    <p id="modal-title" class="text-3xl" x-text="title"></p>
+                    <div class="flex justify-between space-x-4">
+                        <button @click="window.open(link)" x-show="link" aria-label="Open in new window">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                 stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                            </svg>
+                        </button>
+                        <button @click="close" aria-label="Close modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                 stroke="currentColor" class="h-8 w-8">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="modal-description" class="pt-2">
+                    <img x-bind:src="imageUrl" x-bind:alt="altText" class="max-h-half-screen mx-auto" />
+                    <div class="pt-2 prose lg:prose-lg text-center" x-html="content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ /mortar_images }}

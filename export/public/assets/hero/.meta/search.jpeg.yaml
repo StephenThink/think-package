@@ -1,0 +1,15 @@
+data:
+  hero_title: 'Title 3'
+  hero_subheading:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Veniam est id nostrud cillum in esse ea esse deserunt sit cupidatat eiusmod magna.'
+size: 115118
+last_modified: 1738570188
+width: 1920
+height: 1080
+mime_type: image/jpeg
+duration: null

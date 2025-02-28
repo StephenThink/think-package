@@ -1,0 +1,15 @@
+data:
+  hero_title: 'Title 1'
+  hero_subheading:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Do esse ipsum irure sit aute sit sint non proident irure.'
+size: 9442418
+last_modified: 1738570188
+width: 5824
+height: 3264
+mime_type: image/png
+duration: null

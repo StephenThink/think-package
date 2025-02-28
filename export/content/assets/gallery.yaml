@@ -1,0 +1,7 @@
+title: Gallery
+disk: gallery
+allow_uploads: true
+create_folders: true
+warm_presets:
+  - gallery-image
+  - gallery-full

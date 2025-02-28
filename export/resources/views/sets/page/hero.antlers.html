@@ -1,0 +1,47 @@
+<section
+    class="relative flex content-center items-center justify-center min-h-three-quarter-screen {{ hero_background_colour }}"
+    id="hero"
+    role="banner"
+    data-animate="translateY"
+>
+    {{ if hero_image }}
+        {{ if animate_image === 'appearZoom' }}
+            <div class="reveal-hero-image min-h-75 pb-32">
+        {{ /if }}
+
+        <img
+            srcset="
+                {{ glide:hero_image preset='hero-4k-webp'  }} 2560w,
+                {{ glide:hero_image preset='hero-4xl-webp' }} 1920w,
+                {{ glide:hero_image preset='hero-3xl-webp'  }} 1750w,
+                {{ glide:hero_image preset='hero-2xl-webp'  }} 1360w,
+                {{ glide:hero_image preset='hero-xl-webp'  }} 1140w,
+                {{ glide:hero_image preset='hero-lg-webp'  }} 980w,
+                {{ glide:hero_image preset='hero-md-webp'  }} 740w,
+                {{ glide:hero_image preset='hero-sm-webp'  }} 360w
+                "
+            class="absolute top-0 w-full h-full object-cover  {{ animate_image==='appearZoom' ?= 'origin-left' }}"
+            src="{{ glide:hero_image preset="hero-4k-webp" }}"
+            alt="{{ hero_image:alt }}"
+            width="{{ hero_image.width }}"
+            height="{{ hero_image.height }}"
+            data-animate-image="{{animate_image}}"
+        />
+        {{ if animate_image === 'appearZoom' }}
+            </div>
+        {{ /if }}
+    {{ /if }}
+
+    <div class="container relative mx-auto py-10">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-lg px-4 mx-auto text-center" id="heroText">
+            <h1 class="" id="hero_heading">
+                {{ hero_heading | widont }}
+            </h1>
+            <h2 class="mt-4 " id="hero_sub_heading">
+                {{ hero_sub_heading | widont | strip_tags('p')}}
+            </h2>
+        </div>
+      </div>
+    </div>
+</section>

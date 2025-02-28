@@ -1,0 +1,17 @@
+data:
+  image_title: Town
+  alt: 'Town Setting Scene'
+  image_content:
+    -
+      type: paragraph
+      content:
+        -
+          type: text
+          text: 'Veniam voluptate amet sit ullamco. Consectetur est cillum reprehenderit ut aliquip nisi commodo cillum sit. Aliquip veniam reprehenderit commodo id eiusmod consequat anim officia. Labore in quis enim consequat nostrud sint tempor sunt adipisicing nostrud in fugiat. Est sint veniam consectetur.'
+  image_text_field: 'More info ...'
+size: 4652577
+last_modified: 1738570188
+width: 4961
+height: 2813
+mime_type: image/jpeg
+duration: null

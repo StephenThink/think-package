@@ -1,0 +1,57 @@
+title: 'Call To Action'
+fields:
+  -
+    handle: section_colour
+    field:
+      options:
+        -
+          key: bg-black
+          value: Black
+        -
+          key: bg-white
+          value: White
+        -
+          key: bg-gray-300
+          value: 'Light Gray'
+        -
+          key: bg-gray-900
+          value: 'Dark Gray'
+        -
+          key: bg-primary
+          value: Primary
+        -
+          key: bg-secondary
+          value: Secondary
+      default: bg-white
+      type: select
+      display: 'Section Colour'
+      instructions: 'This will set the colour of the Section that all the following components will sit in front of'
+  -
+    handle: cta_content
+    field:
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - removeformat
+        - anchor
+        - color
+        - h4
+      type: bard
+      display: 'CTA Content'
+      instructions: 'This is the text that you want to display to the visitor.'
+      remove_empty_nodes: trim
+      sets:
+        button:
+          display: Button
+          instructions: 'Do you want to add a button?'
+          icon: alert-help-question
+          sets:
+            button:
+              display: Button
+              icon: direction-buttons
+              fields:
+                -
+                  import: button
+                  prefix: cta_
