@@ -1,5 +1,5 @@
 {
-    "name": "stephenThink/think-package",
+    "name": "StephenThink/think-package",
     "extra": {
         "statamic": {
             "name": "Think Package",
