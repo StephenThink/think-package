@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use Illuminate\View\View;
 use Statamic\Widgets\Widget;
 use Statamic\Facades\GlobalSet;
 use Statamic\Facades\Collection;
@@ -15,9 +16,9 @@ class Thinkcreative extends Widget
     /**
      * The HTML that should be shown in the widget.
      *
-     * @return string|\Illuminate\View\View
+     * @return View
      */
-    public function html()
+    public function html(): View
     {
 
         //        Access Site Admin Global
@@ -37,7 +38,7 @@ class Thinkcreative extends Widget
 
 
 
-        return view('widgets.thinkcreative', compact('trainingArea', 'teamMembers', 'reports', 'showGA', 'googleAnalytics'));
+        return view('widgets.thinkcreative', compact('trainingArea', 'teamMembers', 'reports', 'googleAnalytics'));
     }
 
 

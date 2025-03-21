@@ -117,13 +117,12 @@
 .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
     flex-wrap: nowrap;
-    animation: scroll var(--_animation-duration, 40s)
-    var(--_animation-direction, forwards) linear infinite;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
 
     &:hover {
-        -webkit-animation-play-state:paused;
-        -moz-animation-play-state:paused;
-        -o-animation-play-state:paused;
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused;
         animation-play-state: paused;
     }
 }
@@ -167,6 +166,192 @@
 }
 
 .not-popular {
-    @apply  outline outline-black
+    @apply outline outline-black
 }
 
+/* Animating Headings */
+
+.ah-bold {
+    font-weight: bold;
+}
+
+.ah-italic {
+    font-style: italic;
+}
+
+/* Animating Grid */
+
+section.is--grid {
+    position: relative;
+    z-index: 1;
+}
+
+.is--grid__container {
+    padding: 2.08em;
+    padding-bottom: 0;
+
+}
+
+.grid_text-wrap {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    margin-top: -50vh;
+    padding-bottom: 2.08em;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.grid_text-list {
+    position: relative;
+    margin-left: -0.5em;
+}
+
+.grid_text-item {
+    pointer-events: none;
+}
+
+.grid_text-item {
+    position: absolute;
+    left: 0%;
+    top: auto;
+    right: auto;
+    bottom: 0%;
+    opacity: 0;
+    -webkit-transition: opacity 100ms ease;
+    transition: opacity 100ms ease;
+    font-size: 1em;
+}
+
+.grid_text-title {
+    position: relative;
+    font-size: 21.88em;
+    line-height: 0.8;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.grid_text-item.is--active {
+    opacity: 1.0;
+}
+
+.grid_wrapper {
+
+    position: relative;
+    z-index: 2;
+}
+
+.grid_list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 3.6em;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.grid_item:nth-child(6n+1) {
+    width: 25%;
+    margin-right: 6.25%;
+}
+
+.grid_item:nth-child(6n+2) {
+    width: 18.75%;
+    margin-right: 6.25%;
+    margin-top: 20%;
+}
+.grid_item:nth-child(6n+3) {
+    width: 20.5%;
+    margin-top: 4%;
+}
+
+.grid_item:nth-child(6n+4) {
+    width: 23.25%;
+    margin-top: 24%;
+}
+
+.grid_item:nth-child(6n+5) {
+    width: 31.25%;
+    margin-right: 6.25%;
+    margin-top: -12%;
+}
+
+.grid_item:nth-child(6n+6) {
+    width: 25%;
+    margin-right: 25%;
+    margin-top: -8%;
+}
+
+.grid_item {
+    padding: 0.36em;
+}
+
+.grid_wrapper.is--alt {
+    padding-bottom: 23.7em;
+}
+
+.grid_element {
+    position: relative;
+    width: 100%;
+    padding-top: 131%;
+}
+
+.grid_img {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.animated-video {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.vertical-panels {
+    height: 400dvh;
+}
+
+.horizontal-panels {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}

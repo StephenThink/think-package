@@ -1,0 +1,28 @@
+<div
+    x-data="gsap_animated_panels('horizontal')"
+>
+
+
+    <!-- Section -->
+    <section class="relative horizontal-panels" x-ref="panelContainer">
+
+
+        {{ ap_grid_panels }}
+        <div class="panel-image h-screen">
+
+            <img src="{{ ap_panel_image }}" class="w-screen h-screen object-cover z-1
+          "
+                 alt="">
+{{#             <div class="absolute top-0 left-0 #}}
+{{#      flex items-center justify-center #}}
+{{#      w-screen h-screen #}}
+{{#     text-white text-7xl font-black z-2"> #}}
+{{#                 <h2 class="p-10 bg-black/70 rounded-lg">Images</h2> #}}
+{{#             </div> #}}
+        </div>
+        {{ /ap_grid_panels }}
+
+    </section>
+</div>
+
+

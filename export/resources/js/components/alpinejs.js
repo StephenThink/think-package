@@ -9,10 +9,20 @@ import {
     brick_gallery,
     dropdown,
     flip_card,
-    full_card, full_screen_slider, globe_locations, horizontal_scroller, map_locations,
-    navBar, report_term, report_yearly, scrollProgress,
+    full_card,
+    full_screen_slider,
+    globe_locations, gsap_animated_grid, gsap_animated_image, gsap_animated_panels, gsap_animated_video,
+    gsap_animating_headings,
+    horizontal_scroller,
+    image_information,
+    map_locations,
+    navBar,
+    report_term,
+    report_yearly,
+    scrollProgress,
     slider,
-    theme_changer, vertical_scroller
+    theme_changer,
+    vertical_scroller
 } from "./alpinejs/index.js";
 import "@markusantonwolf/ta-analytics/dist/ta-analytics.js"
 import {collapse} from "@alpinejs/collapse";
@@ -53,6 +63,12 @@ const alpinejs = () => {
         Alpine.data('horizontal_scroller', horizontal_scroller)
         Alpine.data('animated_hero', animated_hero)
         Alpine.data('scrollProgress', scrollProgress)
+        Alpine.data('image_information', image_information)
+        Alpine.data('gsap_animating_headings', gsap_animating_headings)
+        Alpine.data('gsap_animated_image', gsap_animated_image)
+        Alpine.data('gsap_animated_grid', gsap_animated_grid)
+        Alpine.data('gsap_animated_video', gsap_animated_video)
+        Alpine.data('gsap_animated_panels', gsap_animated_panels)
 
 
     });

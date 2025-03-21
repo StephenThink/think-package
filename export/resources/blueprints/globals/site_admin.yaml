@@ -91,17 +91,25 @@ tabs:
               type: toggle
               display: 'Google Analytics Active'
               instructions: 'If this is Turned on, Also turn on the Cookies Dialog as you need both Legally active.'
+              visibility: hidden
           -
             handle: google_analytics
             field:
               mode: keyed
               keys:
-                local: Local
-                staging: Staging
-                production: Production
+                -
+                  key: local
+                  value: Local
+                -
+                  key: staging
+                  value: Staging
+                -
+                  key: production
+                  value: Production
               type: array
               display: 'Google Analytics'
               instructions: 'This contains all the information for Google Analytics, please make sure that they contain valid Google Analytics Tags.'
+              visibility: hidden
   icons_and_site_images:
     display: 'Icons and Site Images'
     sections:

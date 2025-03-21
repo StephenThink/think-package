@@ -83,9 +83,11 @@ return [
 
         'class' => null,
 
-        'rules' => [
-            //
-        ],
+//        'rules' => [
+//            //
+//        ],
+
+        'rules' => 'all',
 
     ],
 

@@ -1277,3 +1277,130 @@ fields:
                     fields:
                       -
                         import: bento_layouts
+        gsap:
+          display: GSAP
+          sets:
+            image_information:
+              display: 'Image Information'
+              icon: pencil
+              fields:
+                -
+                  handle: ii_main_image
+                  field:
+                    max_files: 1
+                    container: full_images
+                    folder: /
+                    type: assets
+                    display: 'Main Image'
+                -
+                  handle: ii_content
+                  field:
+                    buttons:
+                      - h2
+                      - h3
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - horizontalrule
+                    remove_empty_nodes: false
+                    type: bard
+                    display: Content
+            animating_headings:
+              display: 'Animating Headings'
+              fields:
+                -
+                  handle: ah_headings
+                  field:
+                    mode: stacked
+                    min_rows: 1
+                    type: grid
+                    display: Headings
+                    fields:
+                      -
+                        handle: ah_heading
+                        field:
+                          type: text
+                          display: Headings
+                          width: 66
+                      -
+                        handle: ah_style
+                        field:
+                          options:
+                            -
+                              key: ah-bold
+                              value: Bold
+                            -
+                              key: ah-italic
+                              value: Italic
+                          default: ah-bold
+                          type: select
+                          display: Style
+                          width: 33
+            animated_image:
+              display: 'Animated Image'
+              fields:
+                -
+                  handle: ai_image
+                  field:
+                    max_files: 1
+                    container: full_images
+                    folder: /
+                    type: assets
+                    display: Image
+            animated_grid:
+              display: 'Animated Grid'
+              icon: focal-point
+              fields:
+                -
+                  handle: animated_grid
+                  field:
+                    mode: stacked
+                    min_rows: 1
+                    type: grid
+                    display: 'Animated Grid'
+                    fields:
+                      -
+                        handle: ag_title
+                        field:
+                          type: text
+                          display: Title
+                      -
+                        handle: ag_images
+                        field:
+                          max_files: 6
+                          min_files: 4
+                          container: mixed_images
+                          folder: /
+                          type: assets
+                          display: Images
+            animated_video:
+              display: 'Animated Video'
+              icon: media-webcam-video
+              fields:
+                -
+                  import: video
+                  prefix: av_video_
+            animated_panels:
+              display: 'Animated Panels'
+              icon: arrow-left
+              fields:
+                -
+                  handle: ap_grid_panels
+                  field:
+                    mode: stacked
+                    min_rows: 4
+                    type: grid
+                    display: 'Grid Panels'
+                    fields:
+                      -
+                        handle: ap_panel_image
+                        field:
+                          max_files: 1
+                          container: full_images
+                          folder: /
+                          type: assets
+                          display: 'Panel Image'

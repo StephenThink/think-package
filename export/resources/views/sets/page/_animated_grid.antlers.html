@@ -1,0 +1,46 @@
+<div x-data="gsap_animated_grid()">
+
+
+    <!-- Section -->
+    <section class="is--grid">
+        <div class="is--grid__container"></div>
+        {{# {{ animated_grid | dump }} #}}
+        <div class="grid_text-wrap w-dyn-list">
+            <div role="list" class="grid_text-list w-dyn-items">
+                {{ animated_grid }}
+                <div role="listitem" class="grid_text-item w-dyn-item"><p class="grid_text-title">{{ag_title}}</p></div>
+                {{ /animated_grid }}
+            </div>
+        </div>
+        <div class="grid_wrapper-contain">
+            {{ animated_grid }}
+            <div class="grid_wrapper {{ last ?= 'is--alt' }} w-dyn-list">
+                <div role="list" class="grid_list w-dyn-items">
+                    {{ ag_images }}
+                    <div role="listitem" class="grid_item w-dyn-item"
+                        {{#                          style="transform: translate3d(0px, -23.0022%, 0px);" #}}
+                    >
+                        <div class="grid_element"><img
+                            src="{{ glide:url preset='mixed-image-webp' }}"
+                            loading="lazy" alt="{{ alt }}"
+                            srcset="
+            {{ glide:url preset='mixed-image-4k-webp'  }} 2560w,
+            {{ glide:url preset='mixed-image-4xl-webp' }} 1920w,
+            {{ glide:url preset='mixed-image-3xl-webp'  }} 1750w,
+            {{ glide:url preset='mixed-image-2xl-webp'  }} 1360w,
+            {{ glide:url preset='mixed-image-xl-webp'  }} 1140w,
+            {{ glide:url preset='mixed-image-lg-webp'  }} 980w,
+            {{ glide:url preset='mixed-image-md-webp'  }} 740w,
+            {{ glide:url preset='mixed-image-sm-webp'  }} 360w
+    "
+                            class="grid_img"></div>
+                    </div>
+                    {{ /ag_images }}
+                </div>
+            </div>
+            {{ /animated_grid }}
+        </div>
+    </section>
+</div>
+
+

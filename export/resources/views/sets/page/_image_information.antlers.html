@@ -1,0 +1,30 @@
+<div x-data="image_information()">
+
+
+    <!-- Section -->
+    <div x-ref="trigger" class=" relative overflow-hidden h-screen ">
+        <img src="{{ glide:ii_main_image format='webp' q='90' }}" class="sticky-image w-full h-screen object-cover"
+             alt="">
+
+
+    </div>
+
+    <div class="wrapper block">
+        <section class="sticky top-0 z-[1000] mt-[-1px] is--nav">
+            <div class="w-full mx-auto py-4 flex justify-between items-center is--container is--nav">
+                <div class="relative z-1 flex justify-between items-center py-6 w-full is--nav-top min-h-40">
+
+                    <div class="absolute top-0 left-0 right-0 flex items-center justify-center w-full is--nav-logo">
+                        <div x-ref="content" class="mx-auto w-1/2 ">
+                           {{ svg src="/think/site/icons/think" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{{#     <div class="h-screen"></div> #}}
+</div>
+
+

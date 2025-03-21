@@ -1,0 +1,24 @@
+<div x-data="gsap_animated_image()">
+
+
+    <!-- Section -->
+    <section class="sticky-circle__wrapper h-[300dvh] bg-black ">
+        <div class="sticky top-0 flex items-center justify-center w-full h-screen">
+            <div class="sticky-circle pt-10  relative flex overflow-hidden items-center justify-center">
+                <img src="{{ ai_image }}" alt="{{ alt }}" class="sticky-circle__img relative w-full h-full max-w-none
+                 min-h-screen min-w-full object-cover" />
+                <div class="appearing-text text-7xl font-bold absolute top-0 left-0 w-full h-full grid grid-cols-2
+                p-10">
+                    <h2 class="p-10 flex">Heading</h2>
+                    <div class="p-10 flex justify-end">Top Right</div>
+                    <div class="p-10 flex items-end">Bottom Left</div>
+                    <div class="p-10 flex items-end justify-end">Bottom Right</div>
+                    </div>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+

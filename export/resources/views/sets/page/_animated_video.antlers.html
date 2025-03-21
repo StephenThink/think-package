@@ -1,0 +1,19 @@
+<div
+    x-data="gsap_animated_video()"
+>
+
+
+    <!-- Section -->
+    <section class="relative min-h-[500dvh] video-container">
+
+        {{ partial:components.page.video classes="
+{{#         aspect-video  #}}
+        h-[100dvh]
+        w-[100dvw]
+        animated-video sticky
+        top-0"
+        :video_files="av_video_video_files"  }}
+    </section>
+</div>
+
+
